@@ -1,0 +1,93 @@
+
+body {
+	position: absolute;
+	left: 3px;
+}
+.container-fluid {
+padding-right: 0px;
+padding-left: 0px;
+}
+pre{
+	height: 220px;
+	max-height: 500px;
+}
+button{
+	float: right;
+}
+
+#codierung{margin: 0 0 0px;}
+
+#huffmanCode{
+	float: left;
+}
+
+#encodeout{
+	height: 260px;
+	word-wrap:break-word;
+	overflow-y: scroll;
+}
+
+#decodeout{
+	height: 60px;
+}
+
+#outtext{
+	height: 20px;
+}
+
+.Hcode{
+	float: left;
+	position: relative;
+	font-size: 18px;
+	line-height: 20px;
+	
+}
+
+.Hcode.odd{background: #EFF8D2;}
+
+.Hcode.even { background: #FFF7FC; }
+
+.zeile {
+	clear: both;
+}
+
+.zelle {
+	float: left;
+}
+.steuerung{
+	float:left;
+	position: relative;
+	left: 12px;
+}
+
+.bigBox {
+	border: 2px solid #b8b2aa;
+	float: left
+}
+
+.smallBox {
+	border: 1px solid #cAc4bD;
+	width: 10px;
+	height: 10px;
+	background: #c5c5c5;
+	float: left;
+}
+
+.innerBox{
+	position: relative;
+	left: 0px;
+	top: 0px;
+	width: 10px;
+	height: 10px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.null{
+	background-color: #F8E9E4;
+}
+
+.eins{
+	background-color: #384132;
+	
+}

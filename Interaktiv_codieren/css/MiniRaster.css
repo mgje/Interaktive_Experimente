@@ -1,0 +1,70 @@
+
+body {
+	position: absolute;
+	left: 3px;
+}
+.container-fluid {
+padding-right: 0px;
+padding-left: 0px;
+}
+
+pre{
+	height: 500px;
+	max-height: 500px;
+}
+
+#btn_decode{
+	float: right;
+}
+
+#hint{
+	height: 250px;
+}
+#codeout{
+	height: 250px;
+}
+
+.zeile {
+	clear: both;
+}
+
+.zelle {
+	float: left;
+}
+.steuerung{
+	float:left;
+	position: relative;
+	left: 12px;
+}
+
+.bigBox {
+	border: 2px solid #b8b2aa;
+	float: left
+}
+
+.smallBox {
+	border: 1px solid #cAc4bD;
+	width: 10px;
+	height: 10px;
+	background: #c5c5c5;
+	float: left;
+}
+
+.innerBox{
+	position: relative;
+	left: 0px;
+	top: 0px;
+	width: 10px;
+	height: 10px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.null{
+	background-color: #F8E9E4;
+}
+
+.eins{
+	background-color: #384132;
+	
+}

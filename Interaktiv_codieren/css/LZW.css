@@ -1,0 +1,111 @@
+
+body {
+	position: absolute;
+	left: 3px;
+}
+.container-fluid {
+padding-right: 0px;
+padding-left: 0px;
+}
+
+pre{
+	height: 500px;
+	max-height: 500px;
+}
+
+#hint{
+	height: 250px;
+}
+#btn_decode{
+	float: right;
+}
+#selectCodeFormat{
+	float: right;
+}
+#LZW_Table table{
+	margin-left: 0px;
+}
+
+#LZW_Table{
+	margin-left: 0px;
+}
+
+#codeout{
+	height: 250px;
+}
+
+.zeile {
+	clear: both;
+}
+
+.zelle {
+	float: left;
+}
+.steuerung{
+	float:left;
+	position: relative;
+	left: 28px;
+}
+
+.bigBox {
+	border: 2px solid #b8b2aa;
+	float: left
+}
+
+.smallBox {
+	border: 1px solid #cAc4bD;
+	width: 26px;
+	height: 26px;
+	background: #c5c5c5;
+	float: left;
+	text-align: center;
+
+}
+
+.innerBox{
+	position: relative;
+	left: 0px;
+	top: 0px;
+	width: 26px;
+	height: 26px;
+	-moz-border-radius: 6px;
+	border-radius: 3px;
+}
+
+.weiss{
+	background-color: #FFFFFF;
+}
+
+.rot{
+	background-color: #E61616;	
+}
+.hellrosa{
+	background-color: #FAD9B9;
+}
+
+.braun{
+	background-color: #663300;	
+}
+.blau{
+	background-color: #3300CC;
+}
+
+.gelb{
+	background-color: #FAF008;	
+}
+.schwarz{
+	background-color: #000000;
+}
+.gruen{
+	background-color: #249700;
+}
+
+
+
+
+
+
+
+
+
+

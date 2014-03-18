@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC9klEQVQ4T6WTzW9UVRjGf+feuXPnu3M7Lf2YgQrTjtCWmqCtiMZIimgaFAyBRUl0gwtroiasjCEsTNy4ckPcaeKChdEYGxExxPhVqKVq6UCAlmKbobQz0ulMp3fuzL13jjf+Cz3Lc948eZ7n9x7BFo+ou3WpCIEqfDjSJTsxTnH5KqX8H1Q3C1QrFTS/QIpm1Ph+nnlpjPbtGUK6RgMX0ZCulCgs3V/g+u+Xyf56jo72MI7TSn7dIREC6QsRliVS6izLsSE6e46R7jtCV2YvwrIb8tbUZaZ/Ps9nn39Lf3eG7BJs0y2MiEqzEcR2Fcq2ZHTAR9ic4Z7PE00OsmvgHcQXHyE7ViCd6OfLlQi/TC+haSq9qQBl02Gx1kKlBj36Q0xb4fUXG7SvFGnzx7hnbyDG326SzxkBZhtxzv8J3TGHgF+lXDH57baFf+/TJKJxitd/QsTaOPmy68V5SM+aTbcKYvUMsqh18un9BPnVdfYk/RTLNiXZjBZpIZk0vBJ9FAo1lrz7am6Rx3sLPJWWbM+ZiNzZbfKabOXinE6wuIqi2tRDaY6/9gKZnQnPDR4hSc3RmPprnguX5rC8uX0Dj+hrdxCfvLVPJnaGuPOPwlx2mf2DXRwcHsKI6lRtiEeU/wWCkWZKxTXGPp5B13zY/97h2OEC4o3hlAxHDcItnazk1xk9nGL40BCTU3epbFYZHOqn0fBaF0F0n8uZD78j2trB7RtZj1IecXakTZou5GWccEClo6nO0aPPEwppLMwvs7s3TSwepeE63rZIbsxtMD2b46tLfzMx4zn44EhSbtYlZVcj1aqjKGCaNZpiYSKBHJZxkoOj72HVHa58c4ErF7/23gI8++QOUDTEuVdS8pEFvqDm4dKoWA4Pii6blkrMXWBHpo/HDpymoQW5Ofkj4z9MsGdXC6defQLXcy7eH+mUJVvFMHQvoxdlAyYXbKZuLvLu2JscHzngYbVYK5nMXP2e+dw6PR7qE4e6uHX3AWKLn3HrAv8BZi80iSOcOBAAAAAASUVORK5CYII=" type="image/x-icon" />
+	<title>Codieren / Decodieren</title>
+	<link href="css/Huffman.css" rel="stylesheet">
+    <link href="css/tree.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Begin Navigation -->
+    <div class="navbar">
+    <div class="navbar-inner">
+    <a class="brand" href="#">Komprimierung</a>
+    <ul class="nav">
+      <li><a href="index.html">Start</a></li>
+      <li class="active"><a href="#">Huffman</a></li>
+      <li><a href="LZW_Mittel.html">8-Farb Bitmap</a></li>
+      <li><a href="Lauflaengen_Gross.html">Lauflängen gross</a></li>
+      <li><a href="Lauflaengen_Mittel.html">Lauflängen mittel</a></li>
+      <li><a href="Lauflaengen_Mini.html">Lauflängen klein</a></li>
+    </ul>
+    </div>
+    </div>
+    <!-- Ende Navigation -->
+    <div class="container-fluid">
+    <div class="row">
+    <!-- Begin linke Spalte -->
+    <div class="span6">
+	<h3>Codieren / Decodieren</h3>
+    <form id="codierung">
+    <textarea id="input1" rows="5" name="input1" class="span6">Kenne mer nit, bruche mer nit, fott domet!</textarea>
+    <select   id="selectCode">
+            <option>ASCII Codierung</option>
+            <option>Huffman Codierung</option>
+    </select>
+     <button type="submit" name="button" class="btn" ><i class="icon-chevron-right"></i> Codieren </button>
+	</form> 
+
+    <div >Codierter Text: </div>
+    <div id="encodeout" class="alert alert-success"></div>
+    
+    <div id="Bits">
+     Bits
+    </div>
+    <form>
+    <button type="submit" name="button" class="btn" ><i class="icon-chevron-right"></i> Decodieren </button>
+    </form> 
+    
+    <div>
+     Decodierter Text: 
+    </div>
+    <pre  id="decodeout" class="pre-scrollable">
+    </pre>
+ 
+    </div>
+    <!-- Ende linke Spalte -->
+    <!-- rechte Spalte -->
+    <div class="span7">   
+    <div id="chart"></div>
+    </div>
+    <!-- Ende rechte Spalte -->
+    </div>
+   
+    </div>
+    <script src="js/d3.min.js"></script>
+    <script src="js/d3.layout.js"></script>
+    <script src="js/huffman-0.9.1.js"></script>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+	<script src="js/Huffman.js"></script>
+</body>
+</html>

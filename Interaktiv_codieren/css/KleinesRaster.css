@@ -1,0 +1,47 @@
+.row {
+	clear: both;
+}
+
+.cell {
+	float: left;
+}
+
+.steuerung{
+	float:left;
+	position: relative;
+	left: 12px;
+}
+
+#btn_decode{
+	float: right;
+}
+
+.bigBox {
+	border: 2px solid black;
+}
+
+.smallBox {
+	border: 1px solid #8A847D;
+	width: 22px;
+	height: 22px;
+	background: #858585;
+	text-align: center;
+}
+
+.innerBox{
+	position: relative;
+	left: 1px;
+	top: 1px;
+	width: 20px;
+	height: 20px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.null{
+	background-color: #F8E9E4;
+}
+
+.eins{
+	background-color: #384132;
+}
