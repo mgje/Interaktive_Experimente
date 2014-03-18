@@ -1,7 +1,11 @@
-Interaktive Experimente
-=======================
+##Liste frei zugänglicher interaktiven Experimenten
 
-Frei zugängliche interaktive Experimente 
+- [Huffman Codierung](http://mgje.github.io/Codierung/Huffman.html)
+- [Lempel-Ziv-Welch (LZW) Codierung](http://mgje.github.io/Codierung/LZW_Mittel.html)
+- [Lauflängen Codierung](http://mgje.github.io/Codierung/Lauflaengen_Mini.html)
+
+
+
 
 ## Internationaler Wettbewerb «Informatik-Biber»
 
