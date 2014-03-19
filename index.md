@@ -21,7 +21,7 @@ title: Start
 [![Kryptoanalyse](images/kryptoanalyse.png)](http://mgje.github.io/Crypto/exp6/index.html)
 [Verschlüsselte Texte dechiffrieren](http://mgje.github.io/Crypto/exp7/index.html)
 
-[![Huffman](images/huffman.png)](http://mgje.github.io/Codierung/Huffman.html)
+[![Huffman](images/Huffman.png)](http://mgje.github.io/Codierung/Huffman.html)
 [Huffman Codierung](http://mgje.github.io/Codierung/Huffman.html)
 
 [![Lauflaengen_Codierung](images/Lauflaengen_Codierung.png)](http://mgje.github.io/Codierung/Lauflaengen_Mini.html)
