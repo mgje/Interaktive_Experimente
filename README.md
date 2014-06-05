@@ -8,6 +8,11 @@
 - [Huffman Codierung](http://mgje.github.io/Codierung/Huffman.html)
 - [Lempel-Ziv-Welch (LZW) Codierung](http://mgje.github.io/Codierung/LZW_Mittel.html)
 - [Lauflängen Codierung](http://mgje.github.io/Codierung/Lauflaengen_Mini.html)
+- [Heuhaufen - Exeperimente mit dem Zufall](http://mgje.github.io/webprogramming/processing/zufallsbilder.html)
+- [Virtuelles Fuerwerk](http://mgje.github.io/webprogramming/processing/visuelle_effekte.html)
+- [Spinnweben simulieren](http://mgje.github.io/webprogramming/processing/spinnweben.html)
+- [Summe von drei Sinusfunktionen](http://mgje.github.io/fourierseries/SinusSumme.html)
+- [Experimente mit der Fourierreihe](http://mgje.github.io/fourierseries/Fourierreihen.html)
 
 
 ## Internationaler Wettbewerb «Informatik-Biber»
