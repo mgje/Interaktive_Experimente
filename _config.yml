@@ -1,3 +1,4 @@
 name: Interaktive_Experimente
 exclude: ["*.coffee","test","*.sh","coffee","toDelete","README.md"]
+markdown: kramdown
 baseurl: /
