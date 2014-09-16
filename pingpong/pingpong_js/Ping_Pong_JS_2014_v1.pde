@@ -209,7 +209,7 @@ void incnumber(){
 }
 
 void decnumber(){
-  n++;
+  n--;
   initbackground();
 }
 
