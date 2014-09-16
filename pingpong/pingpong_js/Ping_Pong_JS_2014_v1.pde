@@ -203,6 +203,16 @@ void keyPressed() {
   pingpongvalue();
 }
 
+void incnumber(){
+  n++;
+  initbackground();
+}
+
+void decnumber(){
+  n++;
+  initbackground();
+}
+
 void infoPanel(){
   if (showhelp){
      showhelp = false;
