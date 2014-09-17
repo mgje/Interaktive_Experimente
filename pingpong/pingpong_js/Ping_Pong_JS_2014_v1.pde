@@ -205,12 +205,18 @@ void keyPressed() {
 
 void incnumber(){
   n++;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
   initbackground();
+  initdraw();
 }
 
 void decnumber(){
   n--;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
   initbackground();
+  initdraw();
 }
 
 void infoPanel(){
