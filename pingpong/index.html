@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet_ping.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
     <link rel="icon"  type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAQAAVzABAEAjBQAaDwYAWjUGAGE6CQBrQQ0ATS8PAFhAJwBUQC8AbFI6AHVXPACBZk4A4NrWAPb19QAAAAAAAMmZmZmZmgAJIwAAAAAAcMIjPjA+PjAKpxIuMDMzMAm0Ii4zMzMACaIiLt3dMAAJtyIuIzPQAAm0Un5yM+IzKLRkfncy4iIotRF+dyLkIiq0QX53F+EiGrQUTkd34iIatEVu7u5iIVrBVVRBRFRVbAtGZGZla2uwAMu7u7u8vADAAwAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA" />
@@ -60,58 +60,16 @@ function getProcessingSketchId () { return 'PingPongJS2014v1'; }
                   <p> Here you find <a href="index2.html">the old standalone version</a> </p>
               </div>
 
-             <!-- p>
-               <video width="732" height="720" controls autoplay >
-                <source src="movies/Ping-Pong.m4v" type="video/mp4" />
-                <source src="movies/Ping-Pong.webm" type="video/webm" />
-               
-                  Your browser does not support the <code>video</code> element.
-              </video>
-             </p> -->
-
-            <!--  <p>
-              Sie können aus der Navigation (rechts) die Ping-Pong-Simulation für ihr System herunterladen.
-             <b>Vor dem Ausführen dieser Simulation werden Sie von Ihrem Betriebssystem gewarnt, dass es sich um gefährliche Software handeln könnte. In diesem Fall ist die Software nicht gefährlich und kann auf Ihrem System installiert werden.</b> Die Ping-Pong-Simulation wurde mit <a href="htttp://www.processing.org">Processing</a> programmiert. Einen ausführlichen Artikel zum Ping-Pong-Spiel finden Sie <a href="http://web.fhnw.ch/ph/mathematikdidaktik/professur-mathedidaktik-s1-s2/team/martin-guggisberg/artikel/mathe-macht-musik-ping-pong">unter diesem Link</a>. -->
-
-
-             <!-- Den <a href="https://github.com/mgje/Interaktive_Experimente/tree/master/pingpong">Sourcecode</a> finden Sie auf <a href="https://github.com/mgje/Interaktive_Experimente/tree/master/pingpong">GitHub</a>. Rückmeldungen und Anregungen sind herzlich willkommen! <a href="https://github.com/mgje">Martin Guggisberg</a>
-            </p> -->
-
         </section>
         <aside id="sidebar">
-         <!--  <h2> App Downloads </h2> -->
-         <!--  <a href="downloads/application.windows64.zip" class="button">
-            Windows <small>64-bit  .zip file</small>
-            
-          </a>
-          
-          <a href="downloads/application.windows32.zip" class="button">
-            Windows <small>32-bit .zip file</small>
-          </a>
-          
-          <a href="downloads/application.macosx.zip" class="button">
-            Mac OSX <small>.zip file</small>
-          </a>
-          
-          <a href="downloads/Ping_Pong_2014_v5.pde" class="button">
-            Source <small>Processing source code</small>
-          </a>
-          
-          <a href="downloads/application.linux64.zip" class="button">
-            Linux <small>64-bit .zip file</small>
-          </a>
-          
-          <a href="downloads/application.linux32.zip" class="button">
-            Linux<small>32-bit .zip file</small>
-          </a> -->
-         <!--  <button> -->
-              <a href="#inc" class="button" onClick="Processing.getInstanceById('PingPongJS2014v1').incnumber();"> N ++ </a>
-          <!-- </button> -->
-
-          <button class="button"
+         <h2> App Steuerung </h2> 
+         
+          <a href="#inc" class="button" onClick="Processing.getInstanceById('PingPongJS2014v1').incnumber();"> N ++ </a>
+         
+          <a href="#dec" class="button"
               onClick="Processing.getInstanceById('PingPongJS2014v1').decnumber();">
              N --
-          </button>
+          </a>
           
           
         
