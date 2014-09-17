@@ -1,41 +1,23 @@
  /**
- * Author Martin Guggisberg at unibas dot ch, Sept 2011
- * 
- * KEYS
- * SPACE             : restart
- * f                 : faster
- * s                 : slower
- * +                 : increase total-number
- * -                 : decrease total-number
- * 1                 : increase ping-number
- * 2                 : decrease ping-number
- * 3                 : increase pong-number
- * 4                 : decrease pong-number
- * p/P               : save pdf
- */   
-
-import processing.pdf.*;
-import java.util.Calendar;
-
-float t;
-int counter,pos,oldpos,step,n,r_k,dimx,R,ping,pong;
-int schale,kor;
-PFont fontA;
-String s;
-int speed;
-color blob;
-boolean  showhelp=false;
+ * Author Martin Guggisberg at unibas dot ch, Sept 2014
+ */
+ 
+var t,
+    counter,pos,oldpos,step,n,r_k,dimx,R,ping,pong,r
+    schale,kor,
+    fontA,
+    s,
+    speed,
+    blob,
+    showhelp=false;
 
 void drawKreis(int k){
-   int x=(int)(sin(k*2*PI/n)*R);
-   int y=(int)(cos(k*2*PI/n)*R);
-   smooth();
-   stroke(0);
-   strokeWeight(1);
+   int x=Math.round(Math.sin(k*2*Math.PI/n)*R);
+   int y=Math.round(Math.cos(k*2*Math.PI/n)*R);
    ellipse(x+width/2,y+height/2, r_k, r_k);
-   strokeWeight(1);
 }
 
+// Hintergrund Kreise
 void kreiseZeichnen(){   
    noFill();
    stroke(229);
@@ -45,12 +27,10 @@ void kreiseZeichnen(){
 }
 
 void LinienZeichnen(){
-   noFill();
-   stroke(209);
-   //R=int(1.0*n/5.5*r_k+1.0*r_k/n);
-  //  if (R < 60)
-      R = 60;
-   for (int i=0; i<n; i++){
+  noFill();
+  stroke(209);
+  R = 60;
+  for (int i=0; i<n; i++){
      int x1=(int)(sin(i*2*PI/n)*(R+20));
      int y1=(int)(cos(i*2*PI/n)*(R+20));  
      int x2=(int)(sin(i*2*PI/n)*(R+250));
@@ -59,54 +39,54 @@ void LinienZeichnen(){
    }
 }
 
-void initdraw(){
-  
+void initdraw(){  
   fill(color(255,140));
+   smooth();
+   stroke(0);
+   strokeWeight(1);
   for (int i=0; i<n; i++){
        drawKreis(i);
   }
-  
-  
-  
 }
 
+// Initialisierung den Hintergrund
 void initbackground(){
-  blob = color(160,160,160);
-  kor=0;
-  schale=0;
-  background(255);
-  smooth();
-  noStroke();
-  kreiseZeichnen();
-  LinienZeichnen();
-  
-  fill(color(44,44,44));
-  textAlign(LEFT);
-  textSize(22);
-  String skey = "Press h for help";
-  text(skey, 10, 790); 
+ blob = color(160,160,160);
+ kor=0;
+ schale=0;
+ background(255);
+ smooth();
+ noStroke();
+ kreiseZeichnen();
+ LinienZeichnen();
+ fill(color(44,44,44));
+ textAlign(LEFT);
+ textSize(22);
+ s = "Press h for help";
+ text(s, 10, 790); 
 }
 
+// Anzeige oben links
 void pingpongvalue(){
+  var s1,s2,s3;
   fill(255);
   noStroke();
-  rect(0,0, 80, 80);
+  rect(0,0, 160, 88);
 
-  textFont(fontA, 16);
   textAlign(LEFT);
-  String s1 = "Ping = "+String.valueOf(ping);
-  String s2 = "Pong = "+String.valueOf(pong);
-  String s3 = "n = "+String.valueOf(n);
+  s1 = "Ping = "+ping;
+  s2 = "Pong = "+pong;
+  s3 = "n = "+n;
   fill(color(0,0,160));
   text(s1,10,20);
   fill(color(0,160,0));
-  text(s2,10,40);
+  text(s2,10,42);
   fill(0);
-  text(s3,10,60);
+  text(s3,10,64);
 }
 
-void setup()
-  {
+void setup(){
+    // START init variables
     ping=3;
     pong=4;
     speed=30;
@@ -115,21 +95,14 @@ void setup()
     step=1;
     n=8;
     r_k=22;
-   
-    fontA = createFont("Helonia-Bold-36.vlw",28);
-    //fontA = loadFont("Helonia-Bold-36.vlw");
-    textAlign(CENTER);
-    textFont(fontA, 28);
      
     size(800,800);
-    
     initbackground();
     initdraw();    
-    
-   
-    s=String.valueOf(counter);   
+
+    s=counter.toString();
     pingpongvalue();
-  }
+}
 
 void writeNum(){
   if ((counter%ping==0)&&(counter%pong==0)){
@@ -151,50 +124,38 @@ void writeNum(){
           step = step*(-1);
           schale=schale+1;
        }else{
-          s=String.valueOf(counter);   
+          s=counter.toString();   
           blob = color(160,160,160);  
           kor=0;
        }
     }
   }
+} 
   
-  
-  fill(255);
-  noStroke();
-  rect(width/2-40,height/2-14, 80, 30);   
-  fill(color(0,0,0));
-  textFont(fontA, 28);
-  textAlign(CENTER);
-  text(s,width/2,height/2+9);
-}
-
 void drawcurve(){
-  int r=R+20+schale*7;
-  stroke(98);
-  noFill();
-  float w1=(pos-step)*2*PI/n;
-  float w2=pos*2*PI/n;
-  if (w1 > w2)
+    var r,w1,w2;
+    r=R+20+schale*7;
+    stroke(98);
+    noFill();
+    w1=(pos-step)*2*Math.PI/n;
+    w2=pos*2*Math.PI/n;
+    if (w1 > w2){
       arc(width/2,height/2, r*2, r*2,2.5*PI-w1,2.5*PI-w2);
-  else
+    } else {
       arc(width/2,height/2, r*2, r*2,2.5*PI-w2,2.5*PI-w1);
-  //arc(width/2,height/2, r*2, r*2,pos*2*PI/n,(pos-step)*2*PI/n);
+    }
 }
-
+//Punkte Zeichnen
 void drawblob(){
   int r=R+20+schale*7;
-  int x=(int)(sin(pos*2*PI/n)*(r-kor));
-  int y=(int)(cos(pos*2*PI/n)*(r-kor)); 
+  int x=Math.round(Math.sin(pos*2*Math.PI/n)*(r-kor));
+  int y=Math.round(Math.cos(pos*2*Math.PI/n)*(r-kor)); 
   fill(blob);
   noStroke();
   ellipse(x+width/2,y+height/2, 8, 8);
 }
 
-
-  
-  
-void draw()
-{
+void draw(){
   if (frameCount%speed==0){
     initdraw();
     counter = counter + 1;
@@ -204,12 +165,21 @@ void draw()
     drawcurve();
     writeNum();
     drawblob();
-    
-    
+  
   }  
 }
 
-
+//Events
+// KEYS
+// SPACE             : restart
+// f                 : faster
+// s                 : slower
+// +                 : increase total-number
+// -                 : decrease total-number
+// 1                 : increase ping-number
+// 2                 : decrease ping-number
+// 3                 : increase pong-number
+// 4                 : decrease pong-number
 void keyPressed() {
   switch(key) {
     case ' ': counter = 0;pos=0;step=1;initbackground();initdraw();break;
@@ -225,21 +195,66 @@ void keyPressed() {
     case 'P': savepdf();break;
     case 'h': infoPanel();break;
     case 'H': infoPanel();break;
-
   }
   speed = constrain(speed, 1, 80);
   ping = constrain(ping, 1, 100);
   pong = constrain(pong, 1, 100);
   n = constrain(n, 1, 35);
   pingpongvalue();
-
 }
 
+void incnumber(){
+  n++;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
+  initbackground();
+  initdraw();
+  pingpongvalue();
+}
 
-// timestamp
-String timestamp() {
-  Calendar now = Calendar.getInstance();
-  return String.format("%1$ty%1$tm%1$td_%1$tH%1$tM%1$tS", now);
+void decnumber(){
+  n--;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
+  initbackground();
+  initdraw();
+  pingpongvalue();
+}
+
+void incping(){
+  ping++;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
+  initbackground();
+  initdraw();
+  pingpongvalue();
+}
+
+void decping(){
+  ping--;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
+  initbackground();
+  initdraw();
+  pingpongvalue();
+}
+
+void incpong(){
+  pong++;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
+  initbackground();
+  initdraw();
+  pingpongvalue();
+}
+
+void decpong(){
+  pong--;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
+  initbackground();
+  initdraw();
+  pingpongvalue();
 }
 
 void infoPanel(){
@@ -268,43 +283,9 @@ void infoPanel(){
      text(s, 240, 764);  
       s = "3 : Pong erhöhen          4: Pong verkleinern "; 
      text(s, 240, 788);  
-     
-
    }
 }
 
-void savepdf(){
-  //clear
-  background(255);
 
-  PGraphics pdf=beginRecord(PDF, timestamp()+".pdf");
-  int maxCounter = counter;
-  maxCounter = 55;
-  smooth();
-  noStroke();
-  initbackground();
-  initdraw();
-  //beim Anfang beginnen
-  pos=1;
-  step=1;
-  counter=1; 
-  
-  for (int c=0; c<maxCounter; c  ++){
-    
-    
-    drawcurve();
-    writeNum();
-    drawblob();
-    counter = counter +1;
-    pos = pos+step;
 
-  }
-  
-  fill(color(117,215,0));
-  drawKreis(pos-step);
- 
-  
-  endRecord();
-  
 
-}
