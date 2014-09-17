@@ -209,6 +209,7 @@ void incnumber(){
   counter = 0;pos=0;step=1;
   initbackground();
   initdraw();
+  pingpongvalue();
 }
 
 void decnumber(){
@@ -217,6 +218,43 @@ void decnumber(){
   counter = 0;pos=0;step=1;
   initbackground();
   initdraw();
+  pingpongvalue();
+}
+
+void incping(){
+  ping++;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
+  initbackground();
+  initdraw();
+  pingpongvalue();
+}
+
+void decping(){
+  ping--;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
+  initbackground();
+  initdraw();
+  pingpongvalue();
+}
+
+void incpong(){
+  pong++;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
+  initbackground();
+  initdraw();
+  pingpongvalue();
+}
+
+void decpong(){
+  pong--;
+  n = constrain(n, 1, 35);
+  counter = 0;pos=0;step=1;
+  initbackground();
+  initdraw();
+  pingpongvalue();
 }
 
 void infoPanel(){
