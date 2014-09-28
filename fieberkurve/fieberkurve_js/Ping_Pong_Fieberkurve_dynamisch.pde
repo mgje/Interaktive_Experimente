@@ -346,8 +346,8 @@ void decping(){
 }
 
 void incpong(){
-  if (pong > 3) {
-      pong = pong - 1;
+  if (pong < 100) {
+      pong = pong + 1;
       calcPingPong();
     }
 }
