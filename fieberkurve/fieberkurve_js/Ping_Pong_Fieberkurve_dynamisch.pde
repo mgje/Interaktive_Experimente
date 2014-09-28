@@ -319,6 +319,45 @@ void drawinfoPanel(){
      text(s, x0, y0+5*dy);  
 }
 
+void incnumber(){
+   if (n < 40) {
+      n = n + 1;
+    }
+}
+
+void decnumber(){
+   if (n > 4) {
+      n = n - 1;
+    }
+}
+
+void incping(){
+    if (ping < 100) {
+      ping = ping + 1;
+      calcPingPong();
+    }
+}
+
+void decping(){
+  if (ping > 2) {
+      ping = ping - 1;
+      calcPingPong();
+    }
+}
+
+void incpong(){
+  if (pong > 3) {
+      pong = pong - 1;
+      calcPingPong();
+    }
+}
+
+void decpong(){
+  if (pong > 3) {
+      pong = pong - 1;
+      calcPingPong();
+    }
+}
 
 
 
