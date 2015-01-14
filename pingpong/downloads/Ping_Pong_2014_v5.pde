@@ -212,7 +212,7 @@ void draw()
 
 void keyPressed() {
   switch(key) {
-    case ' ': counter = 0;pos=0;step=1;initbackground();initdraw();break;
+    case ' ': counter = 1;pos=0;step=1;initbackground();initdraw();break;
     case 'f': speed--; break;
     case 's': speed++; break;
     case '+': n++;initbackground();break;
@@ -245,7 +245,7 @@ String timestamp() {
 void infoPanel(){
   if (showhelp){
      showhelp = false;
-     counter = 0;
+     counter = 1;
      pos=0;
      step=1;
      initbackground();

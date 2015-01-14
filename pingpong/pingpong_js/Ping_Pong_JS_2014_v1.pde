@@ -182,7 +182,7 @@ void draw(){
 // 4                 : decrease pong-number
 void keyPressed() {
   switch(key) {
-    case ' ': counter = 0;pos=0;step=1;initbackground();initdraw();break;
+    case ' ': counter = 1;pos=0;step=1;initbackground();initdraw();break;
     case 'f': speed--; break;
     case 's': speed++; break;
     case '+': n++;initbackground();break;
@@ -206,7 +206,7 @@ void keyPressed() {
 void incnumber(){
   n++;
   n = constrain(n, 1, 35);
-  counter = 0;pos=0;step=1;
+  counter = 1;pos=0;step=1;
   initbackground();
   initdraw();
   pingpongvalue();
@@ -215,7 +215,7 @@ void incnumber(){
 void decnumber(){
   n--;
   n = constrain(n, 1, 35);
-  counter = 0;pos=0;step=1;
+  counter = 1;pos=0;step=1;
   initbackground();
   initdraw();
   pingpongvalue();
@@ -224,7 +224,7 @@ void decnumber(){
 void incping(){
   ping++;
   n = constrain(n, 1, 35);
-  counter = 0;pos=0;step=1;
+  counter = 1;pos=0;step=1;
   initbackground();
   initdraw();
   pingpongvalue();
@@ -233,7 +233,7 @@ void incping(){
 void decping(){
   ping--;
   n = constrain(n, 1, 35);
-  counter = 0;pos=0;step=1;
+  counter = 1;pos=0;step=1;
   initbackground();
   initdraw();
   pingpongvalue();
@@ -242,7 +242,7 @@ void decping(){
 void incpong(){
   pong++;
   n = constrain(n, 1, 35);
-  counter = 0;pos=0;step=1;
+  counter = 1;pos=0;step=1;
   initbackground();
   initdraw();
   pingpongvalue();
@@ -251,7 +251,7 @@ void incpong(){
 void decpong(){
   pong--;
   n = constrain(n, 1, 35);
-  counter = 0;pos=0;step=1;
+  counter = 1;pos=0;step=1;
   initbackground();
   initdraw();
   pingpongvalue();
@@ -260,7 +260,7 @@ void decpong(){
 void infoPanel(){
   if (showhelp){
      showhelp = false;
-     counter = 0;
+     counter = 1;
      pos=0;
      step=1;
      initbackground();
