@@ -34,7 +34,7 @@
         tmp = ps.audioCtx.currentTime+ps.notesById["time"].value;
         tmp = 0.1;
 
-        ps.notesById[name].vca.gain.setValueAtTime(0, tmp);
+        ps.notesById[name].vca.gain.setValueAtTime(0, ps.audioCtx.currentTime+tmp);
         //ps.notesById[name].vca.gain.value=1; 
         //setTimeout(function () {ps.notesById[name].vca.gain.value=0; }, ps.notesById["time"].value);
     };
