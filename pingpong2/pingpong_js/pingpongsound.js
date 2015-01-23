@@ -19,6 +19,7 @@
     };
 
     ps.play = function(name){
+    	/***
         var tmp=0.0;
         var fadeTime=0.04;
         if (typeof(ps.notesById[name].osc) === 'undefined'){
@@ -50,6 +51,8 @@
         //ps.notesById[name].vca.gain.setValueAtTime(0, ps.audioCtx.currentTime+tmp);
         //ps.notesById[name].vca.gain.value=1; 
         //setTimeout(function () {ps.notesById[name].vca.gain.value=0; }, ps.notesById["time"].value);
+        
+        **/
     };
     	
 	function registerUI() {
