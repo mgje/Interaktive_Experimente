@@ -20,6 +20,7 @@
 
     ps.play = function(name){
         var tmp=0.0;
+        var fadeTime=0.01;
         if (typeof(ps.notesById[name].osc) === 'undefined'){
             ps.notesById[name].osc = ps.audioCtx.createOscillator(); 
             ps.notesById[name].vca = ps.audioCtx.createGain();
@@ -33,9 +34,18 @@
         tmp = 0.0+ps.notesById["time"].value;
         tmp /= 1000.0;
         
+        // Fade it in.
+        ps.notesById[name].vca.gain.linearRampToValueAtTime(0, ps.audioCtx.currentTime); 
+        ps.notesById[name].vca.gain.linearRampToValueAtTime(1, ps.audioCtx.currentTime + fadeTime);
+
+        // Then fade it out.
+        ps.notesById[name].vca.gain.linearRampToValueAtTime(1, ps.audioCtx.currentTime+tmp-fadeTime); 
+        ps.notesById[name].vca.gain.linearRampToValueAtTime(0, ps.audioCtx.currentTime+tmp);
         
-        ps.notesById[name].vca.gain.setValueAtTime(1, ps.audioCtx.currentTime+0.005);
-        ps.notesById[name].vca.gain.setValueAtTime(0, ps.audioCtx.currentTime+tmp);
+        
+        
+        //ps.notesById[name].vca.gain.setValueAtTime(1, ps.audioCtx.currentTime+0.005);
+        //ps.notesById[name].vca.gain.setValueAtTime(0, ps.audioCtx.currentTime+tmp);
         //ps.notesById[name].vca.gain.value=1; 
         //setTimeout(function () {ps.notesById[name].vca.gain.value=0; }, ps.notesById["time"].value);
     };
