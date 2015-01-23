@@ -30,9 +30,9 @@
             ps.notesById[name].vca.connect(ps.audioCtx.destination);
         } 
         ps.notesById[name].osc.frequency.value = ps.notesById[name].frequency;
-        tmp = ps.audioCtx.currentTime+ps.notesById["time"].value/1000.0;
-        tmp = 0.3;
-        alert(ps.audioCtx.currentTime);
+        tmp = 0.0+ps.audioCtx.currentTime+ps.notesById["time"].value;
+        tmp /= 1000.0;
+        alert(tmp);
         
         ps.notesById[name].vca.gain.setValueAtTime(1, ps.audioCtx.currentTime+0.005);
         ps.notesById[name].vca.gain.setValueAtTime(0, ps.audioCtx.currentTime+tmp);
