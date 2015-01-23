@@ -295,7 +295,7 @@ function restart() {
     osc.stop(0);
     osc.start(0);
 }
-
+alert(start);
 osc.start(0);
 
 setTimeout(restart, 1000);
