@@ -304,7 +304,7 @@ alert(osc);
 alert(ctx);
 osc.start(0);
 
-setTimeout(restart, 1000);
+setInterval(restart, 1000);
     
     
     
