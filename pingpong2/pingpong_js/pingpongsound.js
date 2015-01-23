@@ -272,6 +272,7 @@
     function ensureNodeIsLive() {
         if(nodeNeedsNulling || node === null) {
             node = context.createOscillator();
+            node.connect(audioCtx.destination);
         }
         nodeNeedsNulling = false;
     }
@@ -289,9 +290,6 @@
         node.stop(when);
     };
     
-    this.connect = function(){
-    	node.connect(audioCtx.destination);
-    }
 }
 
 
@@ -305,7 +303,6 @@ function restart() {
 alert("start");
 alert(osc);
 alert(ctx);
-osc.connect();
 osc.start(0);
 
 setTimeout(restart, 1000);
