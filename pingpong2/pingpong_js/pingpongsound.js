@@ -271,6 +271,7 @@
             node = context.createOscillator();
         }
         nodeNeedsNulling = false;
+        alert(node);
     }
 
     this.start = function(when) {
