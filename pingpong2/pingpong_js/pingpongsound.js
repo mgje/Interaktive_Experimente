@@ -11,7 +11,7 @@
     ps.audioCtx = new AudioContext();
 
     ps.notesById = {
-    	'time': {value: 500},
+    	'time': {value: 200},
         'ping': { frequency: 261.6, buttonId: 'ping' },
         'pong': { frequency: 293.7, buttonId: 'pong' },
         'pingpong': { frequency: 329.6, buttonId: 'pingpong' },
