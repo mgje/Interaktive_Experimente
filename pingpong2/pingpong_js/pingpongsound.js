@@ -35,7 +35,7 @@
         tmp /= 1000.0;
         
         
-        alert(ps.audioCtx.currentTime );
+        //alert(ps.audioCtx.currentTime );
         // Fade it in.
         ps.notesById[name].vca.gain.linearRampToValueAtTime(0, ps.audioCtx.currentTime); 
         ps.notesById[name].vca.gain.linearRampToValueAtTime(1, ps.audioCtx.currentTime + fadeTime);
