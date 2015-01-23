@@ -31,8 +31,8 @@
         } 
         ps.notesById[name].osc.frequency.value = ps.notesById[name].frequency;
         ps.notesById[name].vca.gain.setValueAtTime(1, ps.audioCtx.currentTime);
-        tmp = ps.audioCtx.currentTime+ps.notesById["time"].value;
-        tmp = 0.1;
+        tmp = ps.audioCtx.currentTime+ps.notesById["time"].value/1000.0;
+        
 
         ps.notesById[name].vca.gain.setValueAtTime(0, ps.audioCtx.currentTime+tmp);
         //ps.notesById[name].vca.gain.value=1; 
