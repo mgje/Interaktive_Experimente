@@ -19,7 +19,7 @@
     };
 
     ps.play = function(name){
-    	/***
+    
         var tmp=0.0;
         var fadeTime=0.04;
         if (typeof(ps.notesById[name].osc) === 'undefined'){
@@ -52,7 +52,7 @@
         //ps.notesById[name].vca.gain.value=1; 
         //setTimeout(function () {ps.notesById[name].vca.gain.value=0; }, ps.notesById["time"].value);
         
-        **/
+       
     };
     	
 	function registerUI() {
@@ -264,7 +264,7 @@
 
     }
     
-    
+    /*
     function Oscillator(context) {
     var node = null;
     var nodeNeedsNulling = false;
@@ -307,7 +307,7 @@ osc.start(0);
 
 setTimeout(restart, 1000);
     
-    
+    */
     
     
 	// init 
