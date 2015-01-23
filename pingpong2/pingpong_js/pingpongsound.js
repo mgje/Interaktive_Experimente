@@ -272,7 +272,7 @@
     function ensureNodeIsLive() {
         if(nodeNeedsNulling || node === null) {
             node = context.createOscillator();
-            node.connect(audioCtx.destination);
+            node.connect(context.destination);
         }
         nodeNeedsNulling = false;
     }
