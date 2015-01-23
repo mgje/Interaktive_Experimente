@@ -29,8 +29,10 @@
             ps.notesById[name].vca.connect(ps.audioCtx.destination);
         } 
         ps.notesById[name].osc.frequency.value = ps.notesById[name].frequency;
-        ps.notesById[name].vca.gain.value=1; 
-        setTimeout(function () {ps.notesById[name].vca.gain.value=0; }, ps.notesById["time"].value);
+        ps.notesById[name].vca.gain.setValueAtTime(1, ps.audioCtx.currentTime);
+        ps.notesById[name].vca.gain.setValueAtTime(0, ps.audioCtx.currentTime+ps.notesById["time"].value);
+        //ps.notesById[name].vca.gain.value=1; 
+        //setTimeout(function () {ps.notesById[name].vca.gain.value=0; }, ps.notesById["time"].value);
     };
     	
 	function registerUI() {
