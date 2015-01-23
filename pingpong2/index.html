@@ -120,9 +120,11 @@
       step frequency: <input id="sliderstep" type="range" min="180" max="900" step="0.1" value="220" />&nbsp;<input id="labelstepfreq" type="text" value="220" size="5" style="direction: ltr; text-align: right;" /> Hz
       <br>
       <br>
+          
+          <a href="#soundon" class="button" onClick="pingpongsound.notesById['ping'].vca.noteOn(0);">SoundOn</a>
           <a href="#restart" class="button" onClick="Processing.getInstanceById('PingPongJS2014v1').restart();">Restart</a>
 
-          <a href="#incPing" class="button" onClick="Processing.getInstanceById('PingPongJS2014v1').incping();ps.notesById[name].vca.noteOn(0);">Ping +</a>
+          <a href="#incPing" class="button" onClick="Processing.getInstanceById('PingPongJS2014v1').incping();">Ping +</a>
 
           <a href="#decPing" class="button" onClick="Processing.getInstanceById('PingPongJS2014v1').decping();">Ping -</a>
 
