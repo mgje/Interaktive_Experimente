@@ -20,7 +20,7 @@
 
     ps.play = function(name){
         var tmp=0.0;
-        var fadeTime=0.01;
+        var fadeTime=0.04;
         if (typeof(ps.notesById[name].osc) === 'undefined'){
             ps.notesById[name].osc = ps.audioCtx.createOscillator(); 
             ps.notesById[name].vca = ps.audioCtx.createGain();
