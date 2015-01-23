@@ -274,7 +274,6 @@
             node = context.createOscillator();
         }
         nodeNeedsNulling = false;
-        alert(node);
     }
 
     this.start = function(when) {
@@ -304,7 +303,7 @@ alert(osc);
 alert(ctx);
 osc.start(0);
 
-setInterval(restart, 1000);
+setTimeout(restart, 1000);
     
     
     
