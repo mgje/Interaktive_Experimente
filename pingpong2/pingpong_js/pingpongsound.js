@@ -19,6 +19,7 @@
     };
 
     ps.play = function(name){
+        var tmp=0.0;
         if (typeof(ps.notesById[name].osc) === 'undefined'){
             ps.notesById[name].osc = ps.audioCtx.createOscillator(); 
             ps.notesById[name].vca = ps.audioCtx.createGain();
@@ -30,7 +31,10 @@
         } 
         ps.notesById[name].osc.frequency.value = ps.notesById[name].frequency;
         ps.notesById[name].vca.gain.setValueAtTime(1, ps.audioCtx.currentTime);
-        ps.notesById[name].vca.gain.setValueAtTime(0, ps.audioCtx.currentTime+ps.notesById["time"].value);
+        tmp = ps.audioCtx.currentTime+ps.notesById["time"].value;
+        tmp = 0.1;
+
+        ps.notesById[name].vca.gain.setValueAtTime(0, tmp);
         //ps.notesById[name].vca.gain.value=1; 
         //setTimeout(function () {ps.notesById[name].vca.gain.value=0; }, ps.notesById["time"].value);
     };
