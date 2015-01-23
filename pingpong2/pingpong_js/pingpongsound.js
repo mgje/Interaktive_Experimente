@@ -260,6 +260,49 @@
         efp10.onchange=setinputstepfreq;
 
     }
+    
+    
+    function Oscillator(context) {
+    var node = null;
+    var nodeNeedsNulling = false;
+
+    function ensureNodeIsLive() {
+        if(nodeNeedsNulling || node === null) {
+            node = context.createOscillator();
+        }
+        nodeNeedsNulling = false;
+    }
+
+    this.start = function(when) {
+        ensureNodeIsLive();
+        node.start(when);
+    };
+
+    this.stop = function(when) {
+        if(node === null) {
+            return;
+        }
+        nodeNeedsNulling = true;
+        node.stop(when);
+    };
+}
+
+
+var ctx = new AudioContext();
+var osc = new Oscillator(ctx);
+
+function restart() {
+    osc.stop(0);
+    osc.start(0);
+}
+
+osc.start(0);
+
+setTimeout(restart, 1000);
+    
+    
+    
+    
 	// init 
 	window.addEventListener('load', function() {
 		registerUI();
