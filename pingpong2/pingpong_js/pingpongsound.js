@@ -27,10 +27,13 @@
             ps.notesById[name].vca = ps.audioCtx.createGain();
             ps.notesById[name].vca.gain.value=0; 
             ps.notesById[name].osc.type = 'triangle';
-            ps.notesById[name].osc.start(0);
+            
             ps.notesById[name].osc.connect(ps.notesById[name].vca);
             ps.notesById[name].vca.connect(ps.audioCtx.destination);
-            //ps.notesById[name].vca.noteOn(0);
+            if (!ps.notesById[name].osc.start){
+            	ps.notesById[name].osc.start = ps.notesById[name].osc.noteOn;
+            }
+            ps.notesById[name].osc.start(0);
         } 
         ps.notesById[name].osc.frequency.value = ps.notesById[name].frequency;
         tmp = 0.0+ps.notesById["time"].value;
