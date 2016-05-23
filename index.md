@@ -10,6 +10,8 @@ title: Start
       }
     </script>
 
+update
+
 ## Frei zugängliche interaktive Experimente
 
 [![Lempel-Ziv-Welch (LZW) Codierung](images/LZW_Codierung.png)](https://mgje.github.io/Codierung/LZW_Mittel.html)
