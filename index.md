@@ -3,7 +3,12 @@ layout: main
 title: Start
 ---
 
-
+<!-- change to https -->
+    <script>
+      if (window.location.host.indexOf('github.io') > -1 && window.location.protocol != "https:"){
+          window.location.protocol = "https";
+      }
+    </script>
 
 ## Frei zugängliche interaktive Experimente
 
