@@ -3,15 +3,6 @@ layout: main
 title: Start
 ---
 
-<!-- change to https -->
-    <script>
-      if (window.location.host.indexOf('github.io') > -1 && window.location.protocol != "https:"){
-          window.location.protocol = "https";
-      }
-    </script>
-
-update
-
 ## Frei zugängliche interaktive Experimente
 
 [![Lempel-Ziv-Welch (LZW) Codierung](images/LZW_Codierung.png)](https://mgje.github.io/Codierung/LZW_Mittel.html)
