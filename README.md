@@ -1,19 +1,19 @@
 ##Liste frei zugänglicher interaktiven Experimenten
 
-- [Cäsar Verschlüsselung](http://mgje.github.io/Crypto/exp1/)
-- [ROT-X Verschlüsselung](http://mgje.github.io/Crypto/exp3/index.html)
-- [Monoalphabetische Verschlüsselung](http://mgje.github.io/Crypto/exp4/index.html)
-- [Kryptoanalyse](http://mgje.github.io/Crypto/exp6/index.html)
-- [Verschlüsselte Texte dechiffrieren](http://mgje.github.io/Crypto/exp7/index.html)
-- [Huffman Codierung](http://mgje.github.io/Codierung/Huffman.html)
-- [Lempel-Ziv-Welch (LZW) Codierung](http://mgje.github.io/Codierung/LZW_Mittel.html)
-- [Lauflängen Codierung](http://mgje.github.io/Codierung/Lauflaengen_Mini.html)
-- [Heuhaufen - Exeperimente mit dem Zufall](http://mgje.github.io/webprogramming/processing/zufallsbilder.html)
-- [Virtuelles Fuerwerk](http://mgje.github.io/webprogramming/processing/visuelle_effekte.html)
-- [Spinnweben simulieren](http://mgje.github.io/webprogramming/processing/spinnweben.html)
-- [Summe von drei Sinusfunktionen](http://mgje.github.io/fourierseries/SinusSumme.html)
-- [Experimente mit der Fourierreihe](http://mgje.github.io/fourierseries/Fourierreihen.html)
-- [Kürzeste Rundreise](http://mgje.github.io/Interaktive_Experimente/rundreise/)
+- [Cäsar Verschlüsselung](https://mgje.github.io/Crypto/exp1/)
+- [ROT-X Verschlüsselung](https://mgje.github.io/Crypto/exp3/index.html)
+- [Monoalphabetische Verschlüsselung](https://mgje.github.io/Crypto/exp4/index.html)
+- [Kryptoanalyse](https://mgje.github.io/Crypto/exp6/index.html)
+- [Verschlüsselte Texte dechiffrieren](https://mgje.github.io/Crypto/exp7/index.html)
+- [Huffman Codierung](https://mgje.github.io/Codierung/Huffman.html)
+- [Lempel-Ziv-Welch (LZW) Codierung](https://mgje.github.io/Codierung/LZW_Mittel.html)
+- [Lauflängen Codierung](https://mgje.github.io/Codierung/Lauflaengen_Mini.html)
+- [Heuhaufen - Exeperimente mit dem Zufall](https://mgje.github.io/webprogramming/processing/zufallsbilder.html)
+- [Virtuelles Fuerwerk](https://mgje.github.io/webprogramming/processing/visuelle_effekte.html)
+- [Spinnweben simulieren](https://mgje.github.io/webprogramming/processing/spinnweben.html)
+- [Summe von drei Sinusfunktionen](https://mgje.github.io/fourierseries/SinusSumme.html)
+- [Experimente mit der Fourierreihe](https://mgje.github.io/fourierseries/Fourierreihen.html)
+- [Kürzeste Rundreise](https://mgje.github.io/Interaktive_Experimente/rundreise/)
 
 
 # Internationaler Wettbewerb «Informatik-Biber»
