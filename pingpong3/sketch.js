@@ -86,6 +86,9 @@ function pingpongvalue(){
 }
 
 function setup(){
+    var rs;
+
+
     // START init variables
     ping=3;
     pong=4;
@@ -96,13 +99,20 @@ function setup(){
     n=8;
     r_k=22;
      
-    createCanvas(800, 800); 
+    myCanvas = createCanvas(800, 800); 
+    myCanvas.parent('canvasWrapper');
     initbackground();
     initdraw();    
 
     s=counter.toString();
     pingpongvalue();
-}
+
+    //User Interface
+    rs = document.getElementById("bttn_restart");
+    rs.mousePressed(restart);
+
+
+ }
 
 function writeNum(){
   if ((counter%ping==0)&&(counter%pong==0)){
