@@ -176,6 +176,7 @@ function drawblob(){
 }
 
 function draw(){
+  speed = select('#slidergamespeed').value;
   if (frameCount%speed==0){
     initdraw();
     counter = counter + 1;
