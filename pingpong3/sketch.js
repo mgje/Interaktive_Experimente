@@ -86,9 +86,6 @@ function pingpongvalue(){
 }
 
 function setup(){
-    var rs;
-
-
     // START init variables
     ping=3;
     pong=4;
@@ -108,9 +105,18 @@ function setup(){
     pingpongvalue();
 
     //User Interface
-    rs = document.getElementById("bttn_restart");
-    rs.mousePressed(restart);
+    
+    //so = select("#btn_soundon");
+    //so.mousePressed(restart);
 
+    select("#btn_restart").mousePressed(restart);
+    select("#btn_pingp").mousePressed(incping);
+    select("#btn_pingm").mousePressed(decping);
+     select("#btn_pongp").mousePressed(incpong);
+    select("#btn_pongm").mousePressed(decpong);
+
+    //select('#slidergamespeed').changed(setspeed);
+    
 
  }
 
