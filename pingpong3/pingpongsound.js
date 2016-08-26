@@ -190,11 +190,11 @@
             }
         };
 
-        // var setnumber = function(event) {
-        //         var tmp=event.target.value;
-        //         document.getElementById("labelnumber").value=""+tmp;
-        //         Processing.getInstanceById('PingPongJS2014v1').setnumber(parseInt(tmp));           
-        // };
+        var setnumber = function(event) {
+                var tmp=event.target.value;
+                document.getElementById("labelnumber").value=""+tmp;
+            //    Processing.getInstanceById('PingPongJS2014v1').setnumber(parseInt(tmp));           
+        };
 
         // var setpingnumber = function(event) {
         //         var tmp=event.target.value;
@@ -208,11 +208,11 @@
         //         Processing.getInstanceById('PingPongJS2014v1').setpongnumber(parseInt(tmp));           
         // };
 
-        // var setgamespeed = function(event) {
-        //         var tmp=event.target.value;
-        //         document.getElementById("labelgamespeed").value=""+tmp;
+        var setgamespeed = function(event) {
+             var tmp=event.target.value;
+                 document.getElementById("labelgamespeed").value=""+tmp;
         //         Processing.getInstanceById('PingPongJS2014v1').setspeed(parseInt(tmp));           
-        // };
+         };
 
 		//register time slider
 		var et1=document.getElementById("slidertime");
@@ -247,8 +247,8 @@
         // efp6.onchange=setpongnumber;
 
         //register game speed
-        // var efp6=document.getElementById("slidergamespeed");
-        // efp6.onchange=setgamespeed;
+        var efp6=document.getElementById("slidergamespeed");
+        efp6.onchange=setgamespeed;
 
         //register input ping freq
         var efp7=document.getElementById("labelpingfreq");

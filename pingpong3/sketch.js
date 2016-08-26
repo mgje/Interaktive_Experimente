@@ -3,7 +3,7 @@
 
 
 var t,
-    counter,pos,oldpos,step,n,r_k,dimx,R,ping,pong,r,
+    counter,pos,oldpos,step,n,nn,r_k,dimx,R,ping,pong,r,
     schale,kor,
     fontA,
     s,
@@ -176,7 +176,12 @@ function drawblob(){
 }
 
 function draw(){
-  speed = select('#slidergamespeed').value;
+  speed = round(110.0/select('#slidergamespeed').value());
+  nn = constrain(round(select('#slidernumber', 1, 35);
+    if (nn != n) {
+        setnumber(nn);
+    }
+
   if (frameCount%speed==0){
     initdraw();
     counter = counter + 1;
