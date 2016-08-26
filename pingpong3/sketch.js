@@ -3,7 +3,7 @@
 
 
 var t,
-    counter,pos,oldpos,step,n,r_k,dimx,R,ping,pong,r,
+    counter,pos,oldpos,step,n,nn,r_k,dimx,R,ping,nping,npong,pong,r,
     schale,kor,
     fontA,
     s,
@@ -62,8 +62,8 @@ function initbackground(){
  fill(color(44,44,44));
  textAlign(LEFT);
  textSize(22);
- s = "Press h for help";
- text(s, 10, 790); 
+ // s = "Press h for help";
+ // text(s, 10, 790); 
 }
 
 // Anzeige oben links
@@ -89,7 +89,7 @@ function setup(){
     // START init variables
     ping=3;
     pong=4;
-    speed=23;
+    speed=4;
     pos=0;
     counter=1;
     step=1;
@@ -110,10 +110,10 @@ function setup(){
     //so.mousePressed(restart);
 
     select("#btn_restart").mousePressed(restart);
-    select("#btn_pingp").mousePressed(incping);
-    select("#btn_pingm").mousePressed(decping);
-     select("#btn_pongp").mousePressed(incpong);
-    select("#btn_pongm").mousePressed(decpong);
+    // select("#btn_pingp").mousePressed(incping);
+    // select("#btn_pingm").mousePressed(decping);
+    //  select("#btn_pongp").mousePressed(incpong);
+    // select("#btn_pongm").mousePressed(decpong);
 
     //select('#slidergamespeed').changed(setspeed);
     
@@ -176,7 +176,23 @@ function drawblob(){
 }
 
 function draw(){
-  speed = select('#slidergamespeed').value;
+  speed = round (80.0/select('#slidergamespeed').value());
+  nn = round(select('#slidernumber').value());
+  if (nn != n){
+    setnumber(nn);
+  }
+  nping = round(select('#sliderpingnumber').value());
+  if (nping != ping){
+    setpingnumber(nping);
+  }
+
+
+  npong = round(select('#sliderpongnumber').value());
+  if (npong != pong){
+    setpongnumber(npong);
+  }
+
+
   if (frameCount%speed==0){
     initdraw();
     counter = counter + 1;
@@ -204,23 +220,23 @@ function draw(){
 function keyPressed() {
   switch(key) {
     case ' ': counter = 1;pos=0;step=1;initbackground();initdraw();break;
-    case 'f': speed--; break;
-    case 's': speed++; break;
-    case '+': n++;initbackground();break;
-    case '-': n--;initbackground();break;
-    case '1': ping++; break;
-    case '2': ping--; break;
-    case '3': pong++; break;
-    case '4': pong--; break;
-    case 'p': savepdf();break;
-    case 'P': savepdf();break;
-    case 'h': infoPanel();break;
-    case 'H': infoPanel();break;
+  //  case 'f': speed--; break;
+    // case 's': speed++; break;
+    // case '+': n++;initbackground();break;
+    // case '-': n--;initbackground();break;
+    // case '1': ping++; break;
+    // case '2': ping--; break;
+    // case '3': pong++; break;
+    // case '4': pong--; break;
+    // case 'p': savepdf();break;
+    // case 'P': savepdf();break;
+    // case 'h': infoPanel();break;
+    // case 'H': infoPanel();break;
   }
-  speed = constrain(speed, 1, 80);
-  ping = constrain(ping, 1, 100);
-  pong = constrain(pong, 1, 100);
-  n = constrain(n, 1, 35);
+  // speed = constrain(speed, 1, 80);
+  // ping = constrain(ping, 1, 100);
+  // pong = constrain(pong, 1, 100);
+  // n = constrain(n, 1, 35);
   pingpongvalue();
 }
 
@@ -313,34 +329,34 @@ function setspeed(sp){
   speed = Math.round(1.0/sp * 70);
 }
 
-function infoPanel(){
-  if (showhelp){
-     showhelp = false;
-     counter = 1;
-     pos=0;
-     step=1;
-     initbackground();
-     initdraw();
-    }else{
-     showhelp = true;
-     fill(color(54,54,54));
-     textAlign(LEFT);
-     textSize(24);
-     sk = "Keys / Aktionstasten";
-     text(sk, 240, 660); 
-     textSize(21);
-     s = "Space / Leertaste: Neustart";  
-     text(s, 240, 692); 
-     s = "f  : faster / schneller     s: slower / langsamer"; 
-     text(s, 240, 716); 
-     s = "+ : erhöhen                  -: verkleinern (Anzahl Spieler)" ;
-     text(s, 240, 740);
-      s = "1 : Ping erhöhen           2: Ping verkleinern "; 
-     text(s, 240, 764);  
-      s = "3 : Pong erhöhen          4: Pong verkleinern "; 
-     text(s, 240, 788);  
-   }
-}
+// function infoPanel(){
+//   if (showhelp){
+//      showhelp = false;
+//      counter = 1;
+//      pos=0;
+//      step=1;
+//      initbackground();
+//      initdraw();
+//     }else{
+//      showhelp = true;
+//      fill(color(54,54,54));
+//      textAlign(LEFT);
+//      textSize(24);
+//      sk = "Keys / Aktionstasten";
+//      text(sk, 240, 660); 
+//      textSize(21);
+//      s = "Space / Leertaste: Neustart";  
+//      text(s, 240, 692); 
+//      s = "f  : faster / schneller     s: slower / langsamer"; 
+//      text(s, 240, 716); 
+//      s = "+ : erhöhen                  -: verkleinern (Anzahl Spieler)" ;
+//      text(s, 240, 740);
+//       s = "1 : Ping erhöhen           2: Ping verkleinern "; 
+//      text(s, 240, 764);  
+//       s = "3 : Pong erhöhen          4: Pong verkleinern "; 
+//      text(s, 240, 788);  
+//    }
+// }
 
 
 
