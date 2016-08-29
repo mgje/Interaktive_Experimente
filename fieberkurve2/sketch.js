@@ -41,7 +41,7 @@ var circleX1, circleY1,
     myCanvas;
 
 function setup() {
-  myCanvas = createCanvas(1000, 600); 
+  myCanvas = createCanvas(1000, 500); 
   myCanvas.parent('canvasWrapper');
   
   n     = 17;
@@ -66,9 +66,9 @@ function setup() {
   plotX1 = 260; 
   plotX2 = width - 30;
   labelX = 30;
-  plotY1 = 60;
-  plotY2 = height - 280;
-  labelY = height - 222;
+  plotY1 = 100;
+  plotY2 = height - 60;
+  labelY = plotY2+55;
   
   // Corner of the plotted CircleArea
   circleX1 = labelX + 10; 
@@ -76,13 +76,27 @@ function setup() {
   circleY1 = height/2-(circleX2-circleX1)/2-110;
   circleY2 = height/2 +(circleX2-circleX1)/2-110;
 
-  smooth();
-}
+  pingSlider = createSlider(3,41,3);
+  pingSlider.parent('canvasWrapper');
+  pingSlider.position(640,60);
 
+  pongSlider = createSlider(3,41,4);
+  pongSlider.parent('canvasWrapper');
+  pongSlider.position(800,60);
+
+  nSlider = createSlider(3,41,3);
+  nSlider.parent('canvasWrapper');
+  nSlider.position(440,60);
+
+}
 
 function draw() {
   
   if (frameCount%speed==0){
+   ping = pingSlider.value(); 
+   pong = pongSlider.value();
+   n = nSlider.value();
+   
    drawPlotArea();
    drawCircleArea();
    drawTitle();
@@ -158,8 +172,8 @@ function drawTitle() {
   fill(0);
   textSize(20);
   textAlign(LEFT);
- var title = "Ping-Pong Fieberkurve    , n: "+n+"    ,   Ping-Zahl: "+ping+"  ,  Pong-Zahl: "+pong;
-  text(title, plotX1, plotY1 - 10);
+ var title = "Ping-Pong Fieberkurve:   n: "+n+" ,               Ping-Zahl: "+ping+"  ,        Pong-Zahl: "+pong;
+  text(title, plotX1+20, plotY1 - 60);
 }
 
 function drawAxisLabels() {
