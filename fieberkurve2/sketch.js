@@ -28,7 +28,7 @@ var circleX1, circleY1,
     plotX2, plotY2,
     labelX, labelY,
     ZMax,
-    ping, pong,n,counter,  
+    oping, opong,ping, pong,n,counter,  
     xMin, xMax,yMin, yMax,
     years,
     x_,
@@ -52,7 +52,7 @@ function setup() {
   y_= [];
   
    
-  calcPingPong();
+  //calcPingPong();
   
   stroke_size = 8;
   xMin = 0;
@@ -73,8 +73,8 @@ function setup() {
   // Corner of the plotted CircleArea
   circleX1 = labelX + 10; 
   circleX2 = plotX1 - 33;
-  circleY1 = height/2-(circleX2-circleX1)/2-110;
-  circleY2 = height/2 +(circleX2-circleX1)/2-110;
+  circleY1 = height/2-(circleX2-circleX1)/2;
+  circleY2 = height/2 +(circleX2-circleX1)/2;
 
   pingSlider = createSlider(3,41,3);
   pingSlider.parent('canvasWrapper');
@@ -84,7 +84,7 @@ function setup() {
   pongSlider.parent('canvasWrapper');
   pongSlider.position(800,60);
 
-  nSlider = createSlider(3,41,3);
+  nSlider = createSlider(6,41,17);
   nSlider.parent('canvasWrapper');
   nSlider.position(440,60);
 
@@ -97,6 +97,14 @@ function draw() {
    pong = pongSlider.value();
    n = nSlider.value();
    
+   if (ping != oping || pong != opong){
+    oping = ping;
+    opong = pong;
+    calcPingPong();
+   }
+
+
+
    drawPlotArea();
    drawCircleArea();
    drawTitle();
@@ -125,15 +133,26 @@ function draw() {
 function calcPingPong(){
   var step  = 1;
   var pos   = 0;
+  yMin = 0;
+  yMax = 0;
   for (var i= 0; i < ZMax; i++){
     x_[i]=i;  
     y_[i]=pos;
+
+    if (pos > yMax){
+      yMax = pos;
+    }
+    if (pos < yMin){
+      yMin = pos;
+    }
     //XOR
     if ((i % ping==0)^(i % pong==0))
       step = step * (-1);
     pos = pos + step;
     
   }
+  yMax = yMax +1;
+  yMin = yMin -1;
 }
 
 function drawPlotArea(){
