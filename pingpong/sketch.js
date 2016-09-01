@@ -6,18 +6,18 @@ var t,
     counter,pos,oldpos,step,n,nn,r_k,dimx,R,ping,nping,npong,pong,r,
     schale,kor,
     fontA,
-    s,
+    s,x_,y_,
     speed,nspeed,
     blob,
     speedSlider,pingSlider,pongSlider,nSlider,myCanvas,
     showhelp=false,
     SPEED_INV=80;
 
-function drawKreis(k){
+function drawKreis(k,rr){
    var x,y
    x=Math.round(Math.sin(k*2*Math.PI/n)*R);
    y=Math.round(Math.cos(k*2*Math.PI/n)*R);
-   ellipse(x+width/2,y+height/2, r_k, r_k);
+   ellipse(x+width/2,y+height/2, rr, rr);
 }
 
 // Hintergrund Kreise
@@ -49,7 +49,7 @@ function initdraw(){
    stroke(0);
    strokeWeight(1);
   for (var i=0; i<n; i++){
-       drawKreis(i);
+       drawKreis(i,r_k);
   }
 }
 
@@ -130,6 +130,7 @@ function setup(){
     select("#btn_restart").mousePressed(restart);
     smooth();
 
+
  }
 
 function writeNum(){
@@ -184,6 +185,8 @@ function drawblob(){
   ellipse(x+width/2,y+height/2, 8, 8);
 }
 
+
+// Main LOOP
 function draw(){
   nspeed = Math.round(1.0/speedSlider.value()*SPEED_INV);
   if (nspeed != speed){
@@ -207,52 +210,28 @@ function draw(){
 
 
   if (frameCount%speed==0){
-    initdraw();
+    //initdraw();
+    fill(color(255,255,255));
+    drawKreis(pos,r_k*0.90);
     counter = counter + 1;
     pos = pos+step;
     fill(color(117,215,0));
-    drawKreis(pos);
+    drawKreis(pos,r_k*0.90);
     drawcurve();
     writeNum();
     drawblob();
-  
+    x_=width/2-20;
+    y_=height/2+10;
+    fill(255);
+    noStroke();
+    rect(x_,y_-30,58,50);
+    fill(44);
+    text(s,x_,y_);
+
   }  
 }
 
-// //Events
-// // KEYS
-// // SPACE             : restart
-// // f                 : faster
-// // s                 : slower
-// // +                 : increase total-number
-// // -                 : decrease total-number
-// // 1                 : increase ping-number
-// // 2                 : decrease ping-number
-// // 3                 : increase pong-number
-// // 4                 : decrease pong-number
-// function keyPressed() {
-//   switch(key) {
-//     case ' ': counter = 1;pos=0;step=1;initbackground();initdraw();break;
-//   //  case 'f': speed--; break;
-//     // case 's': speed++; break;
-//     // case '+': n++;initbackground();break;
-//     // case '-': n--;initbackground();break;
-//     // case '1': ping++; break;
-//     // case '2': ping--; break;
-//     // case '3': pong++; break;
-//     // case '4': pong--; break;
-//     // case 'p': savepdf();break;
-//     // case 'P': savepdf();break;
-//     // case 'h': infoPanel();break;
-//     // case 'H': infoPanel();break;
-//   }
-//   // speed = constrain(speed, 1, 80);
-//   // ping = constrain(ping, 1, 100);
-//   // pong = constrain(pong, 1, 100);
-//   // n = constrain(n, 1, 35);
-//   pingpongvalue();
-// }
-
+// Methods
 function incnumber(){
   n++;
   n = constrain(n, 1, 35);
@@ -343,35 +322,4 @@ function setspeed(sp){
   speed = sp;
   pingpongvalue();
 }
-
-// function infoPanel(){
-//   if (showhelp){
-//      showhelp = false;
-//      counter = 1;
-//      pos=0;
-//      step=1;
-//      initbackground();
-//      initdraw();
-//     }else{
-//      showhelp = true;
-//      fill(color(54,54,54));
-//      textAlign(LEFT);
-//      textSize(24);
-//      sk = "Keys / Aktionstasten";
-//      text(sk, 240, 660); 
-//      textSize(21);
-//      s = "Space / Leertaste: Neustart";  
-//      text(s, 240, 692); 
-//      s = "f  : faster / schneller     s: slower / langsamer"; 
-//      text(s, 240, 716); 
-//      s = "+ : erhöhen                  -: verkleinern (Anzahl Spieler)" ;
-//      text(s, 240, 740);
-//       s = "1 : Ping erhöhen           2: Ping verkleinern "; 
-//      text(s, 240, 764);  
-//       s = "3 : Pong erhöhen          4: Pong verkleinern "; 
-//      text(s, 240, 788);  
-//    }
-// }
-
-
 
