@@ -10,9 +10,8 @@ var t,
     speed,nspeed,
     blob,
     speedSlider,pingSlider,pongSlider,nSlider,myCanvas,
-    showhelp=false;
-
-const SPEED_INV=80;
+    showhelp=false,
+    SPEED_INV=80;
 
 function drawKreis(k){
    var x,y
