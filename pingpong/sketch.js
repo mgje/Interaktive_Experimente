@@ -1,36 +1,40 @@
 // Martin Guggisberg
 // http://mgje.github.com
-
+"use strict"
 
 var t,
     counter,pos,oldpos,step,n,nn,r_k,dimx,R,ping,nping,npong,pong,r,
     schale,kor,
     fontA,
-    s,
-    speed,
+    s,x_,y_,
+    speed,nspeed,
     blob,
-    showhelp=false;
+    speedSlider,pingSlider,pongSlider,nSlider,myCanvas,
+    showhelp=false,
+    SPEED_INV=80;
 
-function drawKreis(k){
+function drawKreis(k,rr){
+   var x,y
    x=Math.round(Math.sin(k*2*Math.PI/n)*R);
    y=Math.round(Math.cos(k*2*Math.PI/n)*R);
-   ellipse(x+width/2,y+height/2, r_k, r_k);
+   ellipse(x+width/2,y+height/2, rr, rr);
 }
 
 // Hintergrund Kreise
 function kreiseZeichnen(){   
    noFill();
    stroke(229);
-   for (i=0; i<34; i++){
+   for (var i=0; i<34; i++){
        ellipse(width/2,height/2, 160+i*14, 160+i*14);
     }
 }
 
 function LinienZeichnen(){
+  var x1,y1,x2,y2
   noFill();
   stroke(209);
   R = 60;
-  for (i=0; i<n; i++){
+  for (var i=0; i<n; i++){
       x1=sin(i*2*PI/n)*(R+20);
       y1=cos(i*2*PI/n)*(R+20);  
       x2=sin(i*2*PI/n)*(R+250);
@@ -44,8 +48,8 @@ function initdraw(){
    smooth();
    stroke(0);
    strokeWeight(1);
-  for (i=0; i<n; i++){
-       drawKreis(i);
+  for (var i=0; i<n; i++){
+       drawKreis(i,r_k);
   }
 }
 
@@ -68,21 +72,25 @@ function initbackground(){
 
 // Anzeige oben links
 function pingpongvalue(){
-  var s1,s2,s3;
+  var s1,s2,s3,s4;
   fill(255);
   noStroke();
-  rect(0,0, 160, 88);
+  rect(0,0, 140, 54);
+  rect(0,height-70, 140, height);
+  rect(width-110,0,width,77);
 
   textAlign(LEFT);
-  s1 = "Ping = "+ping;
-  s2 = "Pong = "+pong;
+  s1 = "ping = "+ping;
+  s2 = "pong = "+pong;
   s3 = "n = "+n;
+  s4 = "speed = "+round(SPEED_INV/speed);
   fill(color(0,0,160));
-  text(s1,10,20);
+  text(s1,width-110,20);
   fill(color(0,160,0));
-  text(s2,10,42);
+  text(s2,width-110,70);
   fill(0);
-  text(s3,10,64);
+  text(s3,10,20);
+  text(s4,0,height-30);
 }
 
 function setup(){
@@ -103,47 +111,48 @@ function setup(){
 
     s=counter.toString();
     pingpongvalue();
+    pingSlider = createSlider(3,14,3);
+    pingSlider.parent('canvasWrapper');
+    pingSlider.position(width-110,24);
 
-    //User Interface
-    
-    //so = select("#btn_soundon");
-    //so.mousePressed(restart);
+    pongSlider = createSlider(3,14,4);
+    pongSlider.parent('canvasWrapper');
+    pongSlider.position(width-110,76);
+
+    nSlider = createSlider(4,30,9);
+    nSlider.parent('canvasWrapper');
+    nSlider.position(0,24);
+
+    speedSlider = createSlider(1,12,3);
+    speedSlider.parent('canvasWrapper');
+    speedSlider.position(0,height-20);
 
     select("#btn_restart").mousePressed(restart);
-    // select("#btn_pingp").mousePressed(incping);
-    // select("#btn_pingm").mousePressed(decping);
-    //  select("#btn_pongp").mousePressed(incpong);
-    // select("#btn_pongm").mousePressed(decpong);
+    smooth();
 
-    //select('#slidergamespeed').changed(setspeed);
-    
 
  }
 
 function writeNum(){
   if ((counter%ping==0)&&(counter%pong==0)){
-      pingpongsound.play("pingpong");
       s="PiPo";
       blob = color(230,0,0);
       kor=0;
   }else{ 
     if (counter%ping==0) {
        s="Ping";
-       pingpongsound.play("ping");
        blob = color(0,0,160);
        kor=3;
        step= step*(-1);
        schale=schale+1;
     }else { 
        if(counter%pong==0){
-          pingpongsound.play("pong");
           s="Pong";
           blob = color(0,160,0);
           kor=3;
           step = step*(-1);
           schale=schale+1;
        }else{
-          pingpongsound.play("tac");
           s=counter.toString();   
           blob = color(160,160,160);  
           kor=0;
@@ -167,6 +176,7 @@ function drawcurve(){
 }
 //Punkte Zeichnen
 function drawblob(){
+  var r,x,y
   r=R+20+schale*7;
   x=Math.round(Math.sin(pos*2*Math.PI/n)*(r-kor));
   y=Math.round(Math.cos(pos*2*Math.PI/n)*(r-kor)); 
@@ -175,79 +185,53 @@ function drawblob(){
   ellipse(x+width/2,y+height/2, 8, 8);
 }
 
+
+// Main LOOP
 function draw(){
-<<<<<<< HEAD
-  speed = round(110.0/select('#slidergamespeed').value());
-  nn = constrain(round(select('#slidernumber', 1, 35);
-    if (nn != n) {
-        setnumber(nn);
-    }
-=======
-  speed = round (80.0/select('#slidergamespeed').value());
-  nn = round(select('#slidernumber').value());
+  nspeed = Math.round(1.0/speedSlider.value()*SPEED_INV);
+  if (nspeed != speed){
+    setspeed(nspeed);
+  }
+
+  nn = nSlider.value();
   if (nn != n){
     setnumber(nn);
   }
-  nping = round(select('#sliderpingnumber').value());
+  nping = pingSlider.value();
   if (nping != ping){
     setpingnumber(nping);
   }
 
 
-  npong = round(select('#sliderpongnumber').value());
+  npong = pongSlider.value();
   if (npong != pong){
     setpongnumber(npong);
   }
 
->>>>>>> 8a3f618d5200b5818c92b656f9cdfc473aa6d4d5
 
   if (frameCount%speed==0){
-    initdraw();
+    //initdraw();
+    fill(color(255,255,255));
+    drawKreis(pos,r_k*0.90);
     counter = counter + 1;
     pos = pos+step;
     fill(color(117,215,0));
-    drawKreis(pos);
+    drawKreis(pos,r_k*0.90);
     drawcurve();
     writeNum();
     drawblob();
-  
+    x_=width/2-20;
+    y_=height/2+10;
+    fill(255);
+    noStroke();
+    rect(x_,y_-30,58,50);
+    fill(44);
+    text(s,x_,y_);
+
   }  
 }
 
-//Events
-// KEYS
-// SPACE             : restart
-// f                 : faster
-// s                 : slower
-// +                 : increase total-number
-// -                 : decrease total-number
-// 1                 : increase ping-number
-// 2                 : decrease ping-number
-// 3                 : increase pong-number
-// 4                 : decrease pong-number
-function keyPressed() {
-  switch(key) {
-    case ' ': counter = 1;pos=0;step=1;initbackground();initdraw();break;
-  //  case 'f': speed--; break;
-    // case 's': speed++; break;
-    // case '+': n++;initbackground();break;
-    // case '-': n--;initbackground();break;
-    // case '1': ping++; break;
-    // case '2': ping--; break;
-    // case '3': pong++; break;
-    // case '4': pong--; break;
-    // case 'p': savepdf();break;
-    // case 'P': savepdf();break;
-    // case 'h': infoPanel();break;
-    // case 'H': infoPanel();break;
-  }
-  // speed = constrain(speed, 1, 80);
-  // ping = constrain(ping, 1, 100);
-  // pong = constrain(pong, 1, 100);
-  // n = constrain(n, 1, 35);
-  pingpongvalue();
-}
-
+// Methods
 function incnumber(){
   n++;
   n = constrain(n, 1, 35);
@@ -334,37 +318,8 @@ function decpong(){
 }
 
 function setspeed(sp){
-  speed = Math.round(1.0/sp * 70);
+  // speed = Math.round(1.0/sp * SPEED_INV);
+  speed = sp;
+  pingpongvalue();
 }
-
-// function infoPanel(){
-//   if (showhelp){
-//      showhelp = false;
-//      counter = 1;
-//      pos=0;
-//      step=1;
-//      initbackground();
-//      initdraw();
-//     }else{
-//      showhelp = true;
-//      fill(color(54,54,54));
-//      textAlign(LEFT);
-//      textSize(24);
-//      sk = "Keys / Aktionstasten";
-//      text(sk, 240, 660); 
-//      textSize(21);
-//      s = "Space / Leertaste: Neustart";  
-//      text(s, 240, 692); 
-//      s = "f  : faster / schneller     s: slower / langsamer"; 
-//      text(s, 240, 716); 
-//      s = "+ : erhöhen                  -: verkleinern (Anzahl Spieler)" ;
-//      text(s, 240, 740);
-//       s = "1 : Ping erhöhen           2: Ping verkleinern "; 
-//      text(s, 240, 764);  
-//       s = "3 : Pong erhöhen          4: Pong verkleinern "; 
-//      text(s, 240, 788);  
-//    }
-// }
-
-
 

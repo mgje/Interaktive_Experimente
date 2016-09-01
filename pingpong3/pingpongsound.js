@@ -18,6 +18,10 @@
         'tac': { frequency: 220, buttonId: 'tac' }
     };
 
+    ps.globvol = 0.0;
+
+    ps.off = true;
+
     ps.play = function(name){
     
         var tmp=0.0;
@@ -43,10 +47,10 @@
         //alert(ps.audioCtx.currentTime );
         // Fade it in.
         ps.notesById[name].vca.gain.linearRampToValueAtTime(0, ps.audioCtx.currentTime); 
-        ps.notesById[name].vca.gain.linearRampToValueAtTime(1, ps.audioCtx.currentTime + fadeTime);
+        ps.notesById[name].vca.gain.linearRampToValueAtTime(ps.globvol, ps.audioCtx.currentTime + fadeTime);
 
         // Then fade it out.
-        ps.notesById[name].vca.gain.linearRampToValueAtTime(1, ps.audioCtx.currentTime+tmp-fadeTime); 
+        ps.notesById[name].vca.gain.linearRampToValueAtTime(ps.globvol, ps.audioCtx.currentTime+tmp-fadeTime); 
         ps.notesById[name].vca.gain.linearRampToValueAtTime(0, ps.audioCtx.currentTime+tmp);
         
         
@@ -214,6 +218,7 @@
         //         Processing.getInstanceById('PingPongJS2014v1').setspeed(parseInt(tmp));           
          };
 
+
 		//register time slider
 		var et1=document.getElementById("slidertime");
 		et1.onchange=setnewtime;
@@ -235,16 +240,16 @@
         efp4.onchange=setstepfreq;
 
         //register number control
-        // var efp5=document.getElementById("slidernumber");
-        // efp5.onchange=setnumber;
+        var efp5=document.getElementById("slidernumber");
+        efp5.onchange=setnumber;
 
         //register ping number
-        // var efp6=document.getElementById("sliderpingnumber");
-        // efp6.onchange=setpingnumber;
+        var efp6=document.getElementById("sliderpingnumber");
+        efp6.onchange=setpingnumber;
 
         //register ping number
-        // var efp6=document.getElementById("sliderpongnumber");
-        // efp6.onchange=setpongnumber;
+        var efp6=document.getElementById("sliderpongnumber");
+        efp6.onchange=setpongnumber;
 
         //register game speed
         var efp6=document.getElementById("slidergamespeed");
@@ -265,6 +270,8 @@
         //register input step freq
         var efp10=document.getElementById("labelstepfreq");
         efp10.onchange=setinputstepfreq;
+
+        document.getElementById("btn_soundon").onclick=onOffSound;
 
     }
     
