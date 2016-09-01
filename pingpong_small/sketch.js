@@ -95,6 +95,7 @@ function pingpongvalue(){
 
 function setup(){
     // START init variables
+    var offset=120;
     ping=3;
     pong=4;
     speed=4;
@@ -113,19 +114,19 @@ function setup(){
     pingpongvalue();
     pingSlider = createSlider(3,14,3);
     pingSlider.parent('canvasWrapper');
-    pingSlider.position(width-135,24);
+    pingSlider.position(width-135,24+offset);
 
     pongSlider = createSlider(3,14,4);
     pongSlider.parent('canvasWrapper');
-    pongSlider.position(width-135,76);
+    pongSlider.position(width-135,76+offset);
 
     nSlider = createSlider(4,30,9);
     nSlider.parent('canvasWrapper');
-    nSlider.position(0,24);
+    nSlider.position(0,24+offset);
 
     speedSlider = createSlider(1,12,3);
     speedSlider.parent('canvasWrapper');
-    speedSlider.position(0,height-20);
+    speedSlider.position(0,height-20+offset);
 
     select("#btn_restart").mousePressed(restart);
     smooth();
