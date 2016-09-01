@@ -112,11 +112,11 @@ function setup(){
 
     s=counter.toString();
     pingpongvalue();
-    pingSlider = createSlider(3,41,3);
+    pingSlider = createSlider(3,14,3);
     pingSlider.parent('canvasWrapper');
     pingSlider.position(width-110,24);
 
-    pongSlider = createSlider(3,41,4);
+    pongSlider = createSlider(3,14,4);
     pongSlider.parent('canvasWrapper');
     pongSlider.position(width-110,76);
 
