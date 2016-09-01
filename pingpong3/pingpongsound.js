@@ -194,29 +194,47 @@
             }
         };
 
+
+        var onOffSound = function(event){
+
+            if (ps.off){
+                ps.globvol = 1;
+                ps.off = false;
+                document.getElementById("btn_soundon").textContent="SoundOff";
+
+            } else {
+                ps.globvol = 0;
+                ps.off = true;
+                document.getElementById("btn_soundon").textContent="SoundOn";
+                document.getElementById("btn_soundon");h
+
+            }
+
+        };
+
         var setnumber = function(event) {
                 var tmp=event.target.value;
                 document.getElementById("labelnumber").value=""+tmp;
-            //    Processing.getInstanceById('PingPongJS2014v1').setnumber(parseInt(tmp));           
+              //  Processing.getInstanceById('PingPongJS2014v1').setnumber(parseInt(tmp));           
         };
 
-        // var setpingnumber = function(event) {
-        //         var tmp=event.target.value;
-        //         document.getElementById("labelpingnumber").value=""+tmp;
-        //         Processing.getInstanceById('PingPongJS2014v1').setpingnumber(parseInt(tmp));           
-        // };
+        var setpingnumber = function(event) {
+                var tmp=event.target.value;
+                document.getElementById("labelpingnumber").value=""+tmp;
+                // Processing.getInstanceById('PingPongJS2014v1').setpingnumber(parseInt(tmp));           
+        };
 
-        // var setpongnumber = function(event) {
-        //         var tmp=event.target.value;
-        //         document.getElementById("labelpongnumber").value=""+tmp;
-        //         Processing.getInstanceById('PingPongJS2014v1').setpongnumber(parseInt(tmp));           
-        // };
+        var setpongnumber = function(event) {
+                var tmp=event.target.value;
+                document.getElementById("labelpongnumber").value=""+tmp;
+               // Processing.getInstanceById('PingPongJS2014v1').setpongnumber(parseInt(tmp));           
+        };
 
         var setgamespeed = function(event) {
-             var tmp=event.target.value;
-                 document.getElementById("labelgamespeed").value=""+tmp;
-        //         Processing.getInstanceById('PingPongJS2014v1').setspeed(parseInt(tmp));           
-         };
+                var tmp=event.target.value;
+                document.getElementById("labelgamespeed").value=""+tmp;
+            //    Processing.getInstanceById('PingPongJS2014v1').setspeed(parseInt(tmp));           
+        };
 
 
 		//register time slider

@@ -176,13 +176,7 @@ function drawblob(){
 }
 
 function draw(){
-<<<<<<< HEAD
-  speed = round(110.0/select('#slidergamespeed').value());
-  nn = constrain(round(select('#slidernumber', 1, 35);
-    if (nn != n) {
-        setnumber(nn);
-    }
-=======
+
   speed = round (80.0/select('#slidergamespeed').value());
   nn = round(select('#slidernumber').value());
   if (nn != n){
@@ -198,8 +192,6 @@ function draw(){
   if (npong != pong){
     setpongnumber(npong);
   }
-
->>>>>>> 8a3f618d5200b5818c92b656f9cdfc473aa6d4d5
 
   if (frameCount%speed==0){
     initdraw();
