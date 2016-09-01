@@ -87,11 +87,12 @@ function setup() {
   nSlider = createSlider(6,41,17);
   nSlider.parent('canvasWrapper');
   nSlider.position(440,60);
+  
 
 }
 
 function draw() {
-  
+  smooth();
   if (frameCount%speed==0){
    ping = pingSlider.value(); 
    pong = pongSlider.value();
