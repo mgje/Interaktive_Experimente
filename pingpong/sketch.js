@@ -113,11 +113,11 @@ function setup(){
     pingpongvalue();
     pingSlider = createSlider(3,14,3);
     pingSlider.parent('canvasWrapper');
-    pingSlider.position(width-110,24);
+    pingSlider.position(width-135,24);
 
     pongSlider = createSlider(3,14,4);
     pongSlider.parent('canvasWrapper');
-    pongSlider.position(width-110,76);
+    pongSlider.position(width-135,76);
 
     nSlider = createSlider(4,30,9);
     nSlider.parent('canvasWrapper');
