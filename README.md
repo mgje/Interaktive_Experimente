@@ -1,4 +1,4 @@
-##Liste frei zugänglicher interaktiven Experimenten
+##Frei zugängliche interaktive Experimente
 
 - [Cäsar Verschlüsselung](https://mgje.github.io/Crypto/exp1/)
 - [ROT-X Verschlüsselung](https://mgje.github.io/Crypto/exp3/index.html)
@@ -9,8 +9,8 @@
 - [Lempel-Ziv-Welch (LZW) Codierung](https://mgje.github.io/Codierung/LZW_Mittel.html)
 - [Lauflängen Codierung](https://mgje.github.io/Codierung/Lauflaengen_Mini.html)
 - [Heuhaufen - Exeperimente mit dem Zufall](https://mgje.github.io/webprogramming/processing/zufallsbilder.html)
-- [Virtuelles Fuerwerk](https://mgje.github.io/webprogramming/processing/visuelle_effekte.html)
-- [Spinnweben simulieren](https://mgje.github.io/webprogramming/processing/spinnweben.html)
+- [Virtuelles Feuerwerk](https://mgje.github.io/webprogramming/processing/visuelle_effekte.html)
+- [Simulation von Spinnweben ](https://mgje.github.io/webprogramming/processing/spinnweben.html)
 - [Summe von drei Sinusfunktionen](https://mgje.github.io/fourierseries/SinusSumme.html)
 - [Experimente mit der Fourierreihe](https://mgje.github.io/fourierseries/Fourierreihen.html)
 - [Kürzeste Rundreise](https://mgje.github.io/Interaktive_Experimente/rundreise/)
