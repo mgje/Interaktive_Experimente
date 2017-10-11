@@ -40,7 +40,7 @@ Der internationale Wettbewerb «Informatik-Biber» richtet sich an Schülerinnen
 - [Pixelspiele - Zelluläre Automaten](http://www.mehr-davon.de/za/)
 - [Programmieren mit TigerJython](http://www.jython.tobiaskohn.ch/index-de.html)
 - [Online-Tutorials zum Programmieren lernen  (KhanAcademy,engl)](https://www.khanacademy.org/computing/computer-programming)
-- [YouTube Channel zum Programmieren lernen](https://thecodingtrain.com/)
+- [YouTube Channel zum Programmieren lernen](http://thecodingtrain.com/)
 - [Online-Tutorials zum Programmieren lernen](https://code.org/)
 
 
