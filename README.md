@@ -29,8 +29,19 @@
 - [Experimente mit der Fourierreihe](http://mgje.github.io/fourierseries/Fourierreihen.html)
 
 
-
 # Internationaler Wettbewerb «Informatik-Biber»
 
 Der internationale Wettbewerb «Informatik-Biber» richtet sich an Schülerinnen und Schüler der Grundstufe (dritte bis zwölfte Klasse). Jeweils im November können ganze Schulklassen online während einer Lektion teilnehmen. Im Jahr 2013 wurden fast 10'000 Teilnehmende registriert. Der schweizerische Verein für Informatik in der Ausbildung (SVIA) organisiert die Durchführung des Wettbewerbs in der Schweiz. 
 [http://informatik-biber.ch](http://informatik-biber.ch)
+
+
+## Weitere Materialien
+
+- [Pixelspiele - Zelluläre Automaten](http://www.mehr-davon.de/za/)
+- [Programmieren mit TigerJython](https://www.jython.tobiaskohn.ch/index-de.html)
+- [Online-Tutorials zum Programmieren lernen  (KhanAcademy,engl)](https://www.khanacademy.org/computing/computer-programming)
+- [YouTube Channel zum Programmieren lernen](https://thecodingtrain.com/)
+- [Online-Tutorials zum Programmieren lernen](https://code.org/)
+
+
+
