@@ -1,3 +1,18 @@
+
+## Interaktive Simulationen
+- [Game of Life (62 x 37)](https://mgje.github.io/Interaktive_Experimente/sim/gol/index.html)
+- [Game of Life (160 x 160)](https://mgje.github.io/Interaktive_Experimente/sim/gol2/index.html)
+- [Traveling Salesman Problem + Random Heuristic](https://mgje.github.io/Interaktive_Experimente/sim/tsp/index.html)
+- [Traveling Salesman Problem + Simulated Annealing](httpss://mgje.github.io/Interaktive_Experimente/sim/gol2/index.html)
+- [Diffusion](https://mgje.github.io/Interaktive_Experimente/sim/diffusion/index.html)
+- [Diffusion-limited Aggregation](https://mgje.github.io/Interaktive_Experimente/sim/dla/index.html)
+- [Musterbildung - Reaktion / Diffusion](https://mgje.github.io/Interaktive_Experimente/sim/reactdiff2/index.html)
+- [Schwarmverhalten](https://mgje.github.io/Interaktive_Experimente/sim/schwarm/index.html)
+- [Frequenzspektrum von Klängen](https://mgje.github.io/Interaktive_Experimente/sim/33_Sound/index.html)
+- [Heuhaufen - Exeperimente mit dem Zufall](https://mgje.github.io/Interaktive_Experimente/sim/heuhaufen/index.html)
+- [Collatz Spiel 3n+1](https://mgje.github.io/Interaktive_Experimente/collatz2/)
+
+
 ##Frei zugängliche interaktive Experimente
 
 - [Cäsar Verschlüsselung](https://mgje.github.io/Crypto/exp1/)
@@ -8,12 +23,11 @@
 - [Huffman Codierung](https://mgje.github.io/Codierung/Huffman.html)
 - [Lempel-Ziv-Welch (LZW) Codierung](https://mgje.github.io/Codierung/LZW_Mittel.html)
 - [Lauflängen Codierung](https://mgje.github.io/Codierung/Lauflaengen_Mini.html)
-- [Heuhaufen - Exeperimente mit dem Zufall](https://mgje.github.io/webprogramming/processing/zufallsbilder.html)
 - [Virtuelles Feuerwerk](https://mgje.github.io/webprogramming/processing/visuelle_effekte.html)
 - [Simulation von Spinnweben ](https://mgje.github.io/webprogramming/processing/spinnweben.html)
-- [Summe von drei Sinusfunktionen](https://mgje.github.io/fourierseries/SinusSumme.html)
-- [Experimente mit der Fourierreihe](https://mgje.github.io/fourierseries/Fourierreihen.html)
-- [Kürzeste Rundreise](https://mgje.github.io/Interaktive_Experimente/rundreise/)
+- [Summe von drei Sinusfunktionen](http://mgje.github.io/fourierseries/SinusSumme.html)
+- [Experimente mit der Fourierreihe](http://mgje.github.io/fourierseries/Fourierreihen.html)
+
 
 
 # Internationaler Wettbewerb «Informatik-Biber»
