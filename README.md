@@ -1,5 +1,5 @@
 
-## Interaktive Simulationen
+## Simulationen mit p5.js
 - [Game of Life (62 x 37)](https://mgje.github.io/Interaktive_Experimente/sim/gol/index.html)
 - [Game of Life (160 x 160)](https://mgje.github.io/Interaktive_Experimente/sim/gol2/index.html)
 - [Traveling Salesman Problem + Random Heuristic](https://mgje.github.io/Interaktive_Experimente/sim/tsp/index.html)
