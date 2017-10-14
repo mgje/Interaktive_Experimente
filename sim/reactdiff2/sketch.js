@@ -112,10 +112,10 @@ function draw() {
   for (let x=0; x<w; x++) {
     for ( let y=0; y<w; y++) {
       pos = (x+y*w)*4
-      col =  255.0*A[x][y];
-      pixels[pos] = col*1.0;
-      pixels[pos+1] = col*0.91;
-      pixels[pos+2] = col*0.4;
+      col =  255.0*(1-A[x][y]);
+      pixels[pos] = col*0.4;      //R 1
+      pixels[pos+1] = col*0.98;   //G 0.91
+      pixels[pos+2] = col*0.5;    //B 0.4
       pixels[pos+3] = 255;
 
     }
