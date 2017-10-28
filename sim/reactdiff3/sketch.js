@@ -23,6 +23,14 @@ let ks;
 let k = 0.06;
 let outk;
 
+let outb;
+let outg;
+let outr;
+
+let rs;
+let gs;
+let bs;
+
 //float f = 0.029;
 //float k = 0.057;
 
@@ -33,6 +41,7 @@ let outk;
 //float k = 0.0616;
 
 let dt = 1.0;
+let radio;
 
 
 function randstart(){
@@ -47,16 +56,38 @@ function randstart(){
   }
 }
 
+function centerstart(){
+  for (let x=0; x<w; x++) {
+    A[x]=[];
+    B[x]=[];
+    for ( let y=0; y<w; y++) {
+      A[x][y] = 1;
+      B[x][y] = 0;
+      if ( x>w/2-10 && x< w/2+10 && y>w/2-10 && y< w/2+10) B[x][y] = 1;
+    }
+  }
+}
+
 
 function setup() {
   createCanvas(w, w);
   pixelDensity(1);
   
 
-  randstart();
+  //randstart();
+  centerstart();
 
-  
- 
+  radio = createRadio('chemical');
+  radio.option('A');
+  radio.option('B');
+  radio.option('A+B');
+  radio.option('A-B');
+  radio.value('A');
+
+
+
+
+
   fs = createSlider(1, 100, 37);
   fs.position(600,50);
   outf = createElement('div', '');
@@ -90,6 +121,36 @@ function setup() {
   outs="db = "+dbs.value();
   outdb.html(outs);
 
+
+
+
+  rs = createSlider(1, 100, 40);
+  rs.position(600,300);
+  outr = createElement('div', '');
+  outr.position(600, 280);
+  outr.style('font-size: 24px; color: gray');
+  outs="r = "+rs.value();
+  outr.html(outs);
+
+
+  gs = createSlider(1, 100, 98);
+  gs.position(600,350);
+  outg = createElement('div', '');
+  outg.position(600, 330);
+  outg.style('font-size: 24px; color: gray');
+  outs="g = "+gs.value();
+  outg.html(outs);
+
+
+
+  bs = createSlider(1, 100, 50);
+  bs.position(600,400);
+  outb = createElement('div', '');
+  outb.position(600, 380);
+  outb.style('font-size: 24px; color: gray');
+  outs="b = "+bs.value();
+  outb.html(outs);
+
 }
 
 function updatetxt() {
@@ -101,6 +162,12 @@ function updatetxt() {
   outda.html(outs);
   outs="db = "+dbs.value();
   outdb.html(outs);
+  outs="b = "+bs.value();
+  outb.html(outs);
+  outs="g = "+gs.value();
+  outg.html(outs);
+  outs="r = "+rs.value();
+  outr.html(outs);
 
 }
 
@@ -109,15 +176,44 @@ function draw() {
   loadPixels();
   let pos;
   let col;
+  let p;
+  
+  if (radio.value() == 'A') {
+        p =0;
+      } else if (radio.value() == 'B') {
+        p = 1;
+      } else if (radio.value() == 'A+B') {
+        p = 2;
+      } else {
+        p = 3;
+      }
+
+  let b = bs.value();
+  let r = rs.value();
+  let g = gs.value();
+
   for (let x=0; x<w; x++) {
     for ( let y=0; y<w; y++) {
       pos = (x+y*w)*4
-      col =  255.0*(1-A[x][y]);
-      //col =  255.0*B[x][y];
-      //col = 255.0* (-B[x][y]+A[x][y])
-      pixels[pos] = col*0.4;      //R 1
-      pixels[pos+1] = col*0.98;   //G 0.91
-      pixels[pos+2] = col*0.5;    //B 0.4
+      
+      switch (p) {
+        case 0:
+          col =255.0*A[x][y];
+          break;
+        case 1:
+          col =255.0*B[x][y];
+          break;
+        case 2:
+          col =127.0*(B[x][y]+A[x][y]);
+          break;
+        case 3:
+          col =255.0*(B[x][y]-A[x][y]);
+          break;
+      }
+
+      pixels[pos] = col*r/100;      //R 1
+      pixels[pos+1] = col*g/100;   //G 0.91
+      pixels[pos+2] = col*b/100;    //B 0.4
       pixels[pos+3] = 255;
 
     }
