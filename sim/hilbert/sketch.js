@@ -42,7 +42,7 @@ function setup() {
   outdim.html(outs);
 
 
-  pos = createSlider(1, 100, 45);
+  pos = createSlider(1, 100, 14);
   pos.position(680,250);
   outpos = createElement('div', '');
   outpos.position(680, 230);
