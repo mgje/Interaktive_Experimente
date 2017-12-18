@@ -38,7 +38,7 @@ function setup() {
   outdim = createElement('div', '');
   outdim.position(680, 130);
   outdim.style('font-size: 24px; color: gray');
-  outs="dim = "+dims.value();
+  outs="N = "+dims.value();
   outdim.html(outs);
 
 
@@ -47,7 +47,7 @@ function setup() {
   outpos = createElement('div', '');
   outpos.position(680, 230);
   outpos.style('font-size: 24px; color: gray');
-  outs="P at t = "+pos.value()/100.0;
+  outs="t = "+pos.value()/100.0;
   outpos.html(outs);
 
 
@@ -76,7 +76,7 @@ function draw() {
     computeLSystem();
   }
 
-  outs="P at t = "+pos.value()/100.0;
+  outs="t = "+pos.value()/100.0;
   outpos.html(outs);
 
   if (whereinstring > thestring.length-1)
@@ -123,7 +123,7 @@ function computeLSystem(){
   numloops = dims.value();
   step = sizes[numloops];
   thestring = 'A';
-  outs="dim = "+dims.value();
+  outs="N = "+dims.value();
   outdim.html(outs);
 
   // COMPUTE THE L-SYSTEM
