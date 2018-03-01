@@ -8,7 +8,7 @@
 	#fail { color: red; white-space: pre-wrap; max-width: 600px; }
 </style>
 
-
+<!-- WEBGL SHADERS -->
 <script type="x-webgl/x-vertex-shader" id="vertex-shader">#version 300 es
 
 in vec2 a_position;
@@ -28,12 +28,6 @@ uniform vec4 inpv;
 out vec4 myOutputColor;
 // const float F = 0.0545, K = 0.062,
 // 	D_a = 0.20, D_b = 0.10;
-
-// const float F = 0.0575, K = 0.062,
-// 	D_a = 0.21, D_b = 0.115;
-
-
-
 const float TIMESTEP = 1.09;
 
 float F,K,D_a,D_b;
@@ -82,9 +76,21 @@ void main() {
 	myOutputColor = vec4(v, v, v, 1)*vec4(0.35,1.2,0.38,0.70);
 }
 </script>
-
+<!-- HTML Elements / GUI -->
 <body>
-<button id="bttn1">New Parameters</button>
+<button id="bttn1">Random Parameters</button>
+<input id="sliderF" type="range" min="0.0400" max="0.0775" step="0.00015" />
+<input id="rangeValueF" type="text" size="14">
+<input id="sliderK" type="range" min="0.0550" max="0.075" step="0.00015" />
+<input id="rangeValueK" type="text" size="14">
+
+<input id="sliderD_a" type="range" min="0.1" max="0.3" step="0.001" />
+<input id="rangeValueD_a" type="text" size="14">
+<input id="sliderD_b" type="range" min="0.01" max="0.2" step="0.001" />
+<input id="rangeValueD_b" type="text" size="14">
+
+
+<!-- Computation and Control -->
 <script>
 "use strict";
 let W = 1400, H = 800;
@@ -104,30 +110,19 @@ function init() {
 	gl = canvas.getContext("webgl2");
 	//checkCompatibility(gl);
 
-	// let float_texture_ext = gl.getExtension("OES_texture_float");
-	// if (!float_texture_ext) fail("Your browser does not support the WebGL extension OES_texture_float");
-	// window.float_texture_ext = float_texture_ext; // Hold onto it
-    var ext = gl.getExtension('EXT_color_buffer_float');
-    console.log(ext);
-    //window.EXT_color_buffer_float=ext;
+    let ext = gl.getExtension('EXT_color_buffer_float');
     
-
-
-
-
 	vertex_shader = createShader(gl, gl.VERTEX_SHADER, "vertex-shader");
 	timestep_shader = createShader(gl, gl.FRAGMENT_SHADER, "timestep-shader");
 	render_shader = createShader(gl, gl.FRAGMENT_SHADER, "render-shader");
-
 	timestep_prog = createAndLinkProgram(gl, vertex_shader, timestep_shader);
 	render_prog = createAndLinkProgram(gl, vertex_shader, render_shader);
-
 	gl.useProgram(render_prog);
 
 	init2();
- }
+}
 
-	function init2() {
+function init2() {
 
 	loadVertexData(gl, render_prog);
 	gl.uniform2f(gl.getUniformLocation(render_prog, "u_size"), W, H);
@@ -140,8 +135,6 @@ function init() {
 	 K = 0.062+(Math.random()-0.5)/110;
 	 D_a = 0.21+(Math.random()-0.5)/50; 
 	 D_b = 0.115+(Math.random()-0.5)/50;
-
-
 	 // F = 0.0482912165066033;
 	 // K = 0.060443647371791545;
 	 // D_a = 0.2043522177008882;
@@ -151,8 +144,8 @@ function init() {
 
 	console.table([["F","K","D_a","D_b"],[F,K,D_a,D_b]]);
 
-	var initial_state = getInitialState();
-	var t1 = newTexture(gl, initial_state),
+	let initial_state = getInitialState();
+	let t1 = newTexture(gl, initial_state),
 	    t2 = newTexture(gl, null),
 	    fb1 = newFramebuffer(gl, t1),
 	    fb2 = newFramebuffer(gl, t2);
@@ -161,14 +154,14 @@ function init() {
 	// (https://developer.mozilla.org/en-US/docs/Web/WebGL/WebGL_best_practices)
 	gl.useProgram(timestep_prog);
 	gl.bindFramebuffer(gl.FRAMEBUFFER, fb1);
-	var fb_status = gl.checkFramebufferStatus(gl.FRAMEBUFFER);
+	let fb_status = gl.checkFramebufferStatus(gl.FRAMEBUFFER);
 	if (fb_status != gl.FRAMEBUFFER_COMPLETE) {
 		fail("Cannot render to framebuffer: " + fb_status);
 	}
 
 	function step() {
 		gl.useProgram(timestep_prog);
-		for (var i=0; i<10; i++) {
+		for (let i=0; i<10; i++) {
 			gl.bindTexture(gl.TEXTURE_2D, [t1, t2][i % 2]);
 			gl.bindFramebuffer(gl.FRAMEBUFFER, [fb2, fb1][i % 2]);
 			gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -180,21 +173,31 @@ function init() {
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 		if (loop){
 			requestAnimationFrame(step);
-		}		
+		}
 	}
 
     // start continous Animation
 	loop=true;
 	requestAnimationFrame(step);
+
+	//GUI-Adjust
+ 	document.getElementById("sliderF").value=F;
+    document.getElementById("rangeValueF").value="F="+F;
+    document.getElementById("sliderK").value=K;
+    document.getElementById("rangeValueK").value="K="+K;
+    document.getElementById("sliderD_a").value=D_a;
+    document.getElementById("rangeValueD_a").value="D_a="+D_a;
+    document.getElementById("sliderD_b").value=D_b;
+    document.getElementById("rangeValueD_b").value="D_b="+D_b;
 }
 
 function getInitialState() {
-	var a = new Float32Array(4 * W * H);
+	let a = new Float32Array(4 * W * H);
 
-	for (var y=0; y<H; y++) {
-		for (var x=0; x<W; x++) {
-			var i = W*y + x;
-			var central_square = (x > W/2-10 && x < W/2 + 10 && y > H/2-10 && y < H/2+10);
+	for (let y=0; y<H; y++) {
+		for (let x=0; x<W; x++) {
+			let i = W*y + x;
+			let central_square = (x > W/2-10 && x < W/2 + 10 && y > H/2-10 && y < H/2+10);
 			if (central_square) {
 				a[4*i + 0] = 0.7 + Math.random() * 0.02 - 0.01;
 				a[4*i + 1] = 0.25 + Math.random() * 0.03 - 0.01; //0.02
@@ -204,13 +207,12 @@ function getInitialState() {
 			}
 		}
 	}
-
 	return a;
 }
 
 // Create, initialise, and bind a new texture
 function newTexture(gl, initial_state) {
-	var texture = gl.createTexture();
+	let texture = gl.createTexture();
 	gl.bindTexture(gl.TEXTURE_2D, texture);
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
@@ -218,17 +220,13 @@ function newTexture(gl, initial_state) {
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
 	//gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, W, H, 0, gl.RGBA, gl.FLOAT, initial_state);
 	gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA32F, W, H, 0, gl.RGBA, gl.FLOAT, initial_state);
-
-
-
 	return texture;
 }
 
 function newFramebuffer(gl, texture) {
-	var fb = gl.createFramebuffer();
+	let fb = gl.createFramebuffer();
 	gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
 	gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
-
 	return fb;
 }
 
@@ -236,13 +234,13 @@ function loadVertexData(gl, prog) {
 	gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
 	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([ -1,-1, 1,-1, -1,1, 1,1 ]), gl.STATIC_DRAW);
 
-	var a_position = gl.getAttribLocation(prog, "a_position");
+	let a_position = gl.getAttribLocation(prog, "a_position");
 	gl.enableVertexAttribArray(a_position);
 	gl.vertexAttribPointer(a_position, 2, gl.FLOAT, false, 0, 0);
 }
 
 function createAndLinkProgram(gl, vertex_shader, fragment_shader) {
-	var prog = gl.createProgram();
+	let prog = gl.createProgram();
 	gl.attachShader(prog, vertex_shader);
 	gl.attachShader(prog, fragment_shader);
 	gl.linkProgram(prog);
@@ -253,18 +251,18 @@ function createAndLinkProgram(gl, vertex_shader, fragment_shader) {
 }
 
 function createShader(gl, shader_type, shader_code_id) {
-	var shader = gl.createShader(shader_type);
+	let shader = gl.createShader(shader_type);
 	gl.shaderSource(shader, document.getElementById(shader_code_id).text);
 	gl.compileShader(shader);
 	if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-		var err = gl.getShaderInfoLog(shader);
+		let err = gl.getShaderInfoLog(shader);
 		fail("Failed to compile shader: " + err);
 	}
 	return shader
 }
 
 function fail(message) {
-	var fail = document.createElement("p");
+	let fail = document.createElement("p");
 	fail.id = "fail";
 	fail.appendChild(document.createTextNode(message));
 	document.body.removeChild(document.getElementById("canvas"));
@@ -272,10 +270,46 @@ function fail(message) {
 	throw message;
 }
 
+function webglApplyParam() {
+	gl.useProgram(timestep_prog);
+	loadVertexData(gl, timestep_prog);
+	gl.uniform2f(gl.getUniformLocation(timestep_prog, "u_size"), W, H);
+	gl.uniform4f(gl.getUniformLocation(timestep_prog, "inpv"), F,K,D_a,D_b);
+}
+
 init();
 
+// Event-Listener Random Button
 document.getElementById("bttn1").addEventListener("click", () => {loop=false;
     setTimeout(function(){ init2(); }, 150);});
+
+// Event-Listener Slider Feed
+document.getElementById("sliderF").addEventListener("change", () => {
+	document.getElementById("rangeValueF").value="F= "+document.getElementById("sliderF").value;
+    F=parseFloat(document.getElementById("sliderF").value);
+    webglApplyParam();
+});
+
+// Event-Listener Slider Kill
+document.getElementById("sliderK").addEventListener("change", () => {
+	document.getElementById("rangeValueK").value="K= "+document.getElementById("sliderK").value;
+    K=parseFloat(document.getElementById("sliderK").value);
+    webglApplyParam();
+});
+
+// Event-Listener Slider D_a
+document.getElementById("sliderD_a").addEventListener("change", () => {
+	document.getElementById("rangeValueD_a").value="D_a= "+document.getElementById("sliderD_a").value;
+    D_a=parseFloat(document.getElementById("sliderD_a").value);
+    webglApplyParam();
+});
+
+// Event-Listener Slider D_b
+document.getElementById("sliderD_b").addEventListener("change", () => {
+	document.getElementById("rangeValueD_b").value="D_b= "+document.getElementById("sliderD_b").value;
+    D_b=parseFloat(document.getElementById("sliderD_b").value);
+    webglApplyParam();
+});
 </script>
 
 </body>
