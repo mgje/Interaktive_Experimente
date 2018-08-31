@@ -7,11 +7,13 @@
 - [Diffusion](https://mgje.github.io/Interaktive_Experimente/sim/diffusion/index.html)
 - [Diffusion-limited Aggregation](https://mgje.github.io/Interaktive_Experimente/sim/dla/index.html)
 - [Musterbildung - Reaktion / Diffusion](https://mgje.github.io/Interaktive_Experimente/sim/reactdiff2/index.html)
+- [Musterbildung II - Reaktion / Diffusion](https://mgje.github.io/Interaktive_Experimente/sim/webgl-diffusion-reaction/index.html)
 - [Schwarmverhalten](https://mgje.github.io/Interaktive_Experimente/sim/schwarm/index.html)
 - [Frequenzspektrum von Klängen](https://mgje.github.io/Interaktive_Experimente/sim/33_Sound/index.html)
 - [Heuhaufen - Exeperimente mit dem Zufall](https://mgje.github.io/Interaktive_Experimente/sim/heuhaufen/index.html)
 - [Collatz Spiel 3n+1](https://mgje.github.io/Interaktive_Experimente/collatz2/)
-
+- [Pi approximieren mit Buffons's Nadel Experiment](https://mgje.github.io/Interaktive_Experimente/sim/buffon_nadel_problem/index.html)
+-[Pi approximieren mit Monte Carlo](https://mgje.github.io/Interaktive_Experimente/sim/pi_approx/index.html)
 
 ## Frei zugängliche interaktive Experimente
 
