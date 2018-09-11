@@ -30,6 +30,18 @@
 - [Summe von drei Sinusfunktionen](http://mgje.github.io/fourierseries/SinusSumme.html)
 - [Experimente mit der Fourierreihe](http://mgje.github.io/fourierseries/Fourierreihen.html)
 
+## Interaktive Simulationen mit Observablehq
+
+[Schwarmverhalten](https://beta.observablehq.com/@herbps10/boids)
+[Jäger Beute Simulation](https://beta.observablehq.com/@mbostock/predator-and-prey)
+[Convay Game of Life](https://beta.observablehq.com/@mbostock/conways-game-of-life)
+[Reaction Diffusion (WEBGL)](https://beta.observablehq.com/@mbostock/gray-scott-reaction-diffusion)
+[Sonnenblume](https://beta.observablehq.com/@jbum/circles-spirals-and-sunflowers)
+[Kleider Simulation](https://beta.observablehq.com/@patternleaf/verlet-cloth-sim)
+[einfache Feder](https://beta.observablehq.com/@dannygarcia/verlet-spring)
+
+
+
 
 # Internationaler Wettbewerb «Informatik-Biber»
 
